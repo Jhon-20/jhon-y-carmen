@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import arco from "../assets/img/arco.webp";
 import arcoDown from "../assets/img/arco_down.webp";
 import sobre from "../assets/img/sobre.png";
