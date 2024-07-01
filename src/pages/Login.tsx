@@ -13,7 +13,7 @@ const Cart = () => {
     // };
 
     return (
-        <div className=" w-full z-10 py-10">
+        <div className=" w-full min-h-full md:h-screen flex items-center justify-center z-10  py-10">
             <section>
                 <div className="flex items-center flex-col md:flex-row justify-center gap-12 lg:gap-24  lg:py-0">
                     <div className='flex flex-col justify-center items-center'>
