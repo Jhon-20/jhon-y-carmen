@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import Cart from './pages/Login.tsx';
-
+import './App.css';
 const router = createHashRouter([
     {
         path: "/",
