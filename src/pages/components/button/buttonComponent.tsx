@@ -17,8 +17,13 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({ text, icon, fontSize 
         color: "white",
         fontWeight: "500",
         width: "100%",
-        padding: "10px"
+        padding: "10px 15px",
 
+        letterSpacing: "-0.5px",
+        animation: "pulsar 5s infinite",
+        '&:hover': {
+          background: "#6C7B66"
+        }
       }}
 
     >

@@ -5,7 +5,8 @@ import background from "../assets/img/fondoDesktop.gif";
 import { CalendarTick, Gift, Location } from 'iconsax-react';
 import ModalPresentes from "./components/modals/modal_presentes";
 import { useState } from "react";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {
 
@@ -38,7 +39,7 @@ const Cart = () => {
                         <img className="w-[220px] md:w-[300px]" src={arcoDown} alt="arco" />
                     </div>
                     <div className='flex flex-col justify-center items-center'>
-                        <img className='sobre w-[280px] md:w-[380px] cursor-pointer mb-6' src={sobre} alt="sobre" />
+                        <img className='sobre w-[280px] md:w-[380px] cursor-pointer mb-6' style={{ animation: "pulsar 5s infinite" }} src={sobre} alt="sobre" />
                         <p className='text-[18px] text-[#717171] secondFont font-light mb-6'>LINKS DE AYUDA</p>
                         <div className='flex gap-10'>
                             <div onClick={handleOpen} className='flex flex-col items-center gap-2 cursor-pointer' >
@@ -68,6 +69,7 @@ const Cart = () => {
             {openModal &&
                 <ModalPresentes open={openModal} handClose={handleClose} />
             }
+            <ToastContainer theme="success" />
         </div>
 
     );
