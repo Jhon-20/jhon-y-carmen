@@ -18,7 +18,7 @@ const ModalPresentes: React.FC<ModalPresentesProps> = ({ open, handClose }) => {
       className="flex justify-center items-center"
     >
 
-      <Box className="bg-white  m-2 rounded-lg w-full">
+      <Box className="bg-white mx-8 rounded-lg w-full">
         <div className="relative bg-gradient-to-r from-[#86977E] to-[#495245] rounded-t-lg p-4">
           <h1 className="secondFont text-white font-semibold text-xl">Presentes</h1>
           <Gift size="62" color="#FFFFFF" className="absolute right-4 bottom-0 top-2 opacity-50" />
