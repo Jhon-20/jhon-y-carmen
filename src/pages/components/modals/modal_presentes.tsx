@@ -4,7 +4,6 @@ import yape from "../../../assets/img/yape.png";
 import NumeroChip from "../chip/numero_chip";
 import ButtonComponent from "../button/buttonComponent";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 interface ModalPresentesProps {
   open: boolean;
   handClose: () => void;

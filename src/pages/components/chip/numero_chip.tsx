@@ -1,6 +1,6 @@
 
 import { Copy, Heart } from "iconsax-react";
-import { ToastContainer, ToastOptions, toast } from "react-toastify";
+import { ToastOptions, toast } from "react-toastify";
 interface NumeroChipProps {
   label: string;
 
