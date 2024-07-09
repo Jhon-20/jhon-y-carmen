@@ -1,5 +1,5 @@
-import arco from "../assets/img/arco.webp";
-import arcoDown from "../assets/img/arco_down.webp";
+import arco from "../assets/img/arco.png";
+import arcoDown from "../assets/img/arco_down.png";
 import sobre from "../assets/img/sobre.png";
 import background from "../assets/img/fondoDesktop.gif";
 import { CalendarTick, Gift, Location } from 'iconsax-react';
@@ -19,8 +19,8 @@ const Cart = () => {
             <section>
                 <div className="flex items-center flex-col md:flex-row justify-center gap-12 lg:gap-24  lg:py-0">
                     <div className='flex flex-col justify-center items-center'>
-                        <img className="w-[220px] md:w-[300px]" src={arco} alt="arco" />
-                        <div className='flex flex-col justify-center items-center gap-7 mb-6'>
+                        <img className="w-[220px] md:w-[300px] mb-6" src={arco} alt="arco" />
+                        <div className='flex flex-col justify-center items-center gap-7'>
                             <h1 className='primaryFont text-4xl md:text-5xl text-[#464444]'>Jhon y Carmen</h1>
                             <p className='secondFont text-xl md:text-2xl  font-normal text-[#717171]'>12 de Enero | 04:00 pm</p>
                         </div>
