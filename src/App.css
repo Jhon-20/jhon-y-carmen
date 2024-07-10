@@ -1,9 +1,51 @@
+:root{
+  --primary: #86977E;
+  --black  : #121212;
+  --gray100: #717171;
+  --gray200: #545454;
+  --pink   : #FBF1F2;
+  --pink600: #AB7779;
+}
 @font-face {
   font-family: 'primaryFont';
   src: url('./assets/fonts/BrittanySignature.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+.clr-primay{
+  color: var(--primary);
+}
+.clr-black{
+  color: var(--black);
+}.clr-gray100{
+  color: var(--gray100);
+}.clr-gray200{
+  color: var(--gray200);
+}.clr-pink{
+  color: var(--pink);
+}
+.clr-pink600{
+  color: var(--pink600);
+}
+.back-primary{
+  background-color: var(--primary);
+}
+.back-black{
+  background-color: var(--black);
+}
+.back-gray100{
+  background-color: var(--gray100);
+}
+.back-gray200{
+  background-color: var(--gray200);
+}
+.back-pink{
+  background-color: var(--pink);
+}
+.back-pink600{
+  background-color: var(--pink600);
+}
+
 #root {
   margin: 0 auto;
   padding: 0;

@@ -7,6 +7,8 @@ import ModalPresentes from "./components/modals/modal_presentes";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import ModalLocal from "./components/modals/modal_local";
+import ModalAsistencia from "./components/modals/modal_asistencia";
 
 const Cart = () => {
 
@@ -16,12 +18,17 @@ const Cart = () => {
     //     navigate('/system');
     // };
 
-    const [openModal, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
+    const [openModalPresentes, setOpenPresentes] = useState(false);
+    const [openModalLocal, setOpenLocal] = useState(false);
+    const [openModalAsistencia, setOpenAsistencia] = useState(false);
+    const handleOpenPresentes = () => setOpenPresentes(true)
+    const handleOpenLocal = () => setOpenLocal(true)
+    const handleOpenAsistencia = () => setOpenAsistencia(true)
 
     const handleClose = () => {
-        setOpen(false)
-        console.log("clickk close")
+        setOpenPresentes(false)
+        setOpenLocal(false)
+        setOpenAsistencia(false)
     };
 
 
@@ -42,19 +49,19 @@ const Cart = () => {
                         <img className='sobre w-[280px] md:w-[380px] cursor-pointer mb-6' style={{ animation: "pulsar 5s infinite" }} src={sobre} alt="sobre" />
                         <p className='text-[18px] text-[#717171] secondFont font-light mb-6'>LINKS DE AYUDA</p>
                         <div className='flex gap-10'>
-                            <div onClick={handleOpen} className='flex flex-col items-center gap-2 cursor-pointer' >
+                            <div onClick={handleOpenPresentes} className='flex flex-col items-center gap-2 cursor-pointer' >
                                 <div className='rounded-full bg-[#86977E] w-[50px] h-[50px] flex justify-center items-center'>
                                     <Gift size="24" color="#FFFFFF" />
                                 </div>
                                 <p className='primaryFont text-[#464444] text-center'>Presentes</p>
                             </div>
-                            <div className='flex flex-col items-center gap-2 cursor-pointer'>
+                            <div onClick={handleOpenLocal} className='flex flex-col items-center gap-2 cursor-pointer'>
                                 <div className='rounded-full bg-[#86977E] w-[50px] h-[50px] flex justify-center items-center'>
                                     <Location size="24" color="#FFFFFF" />
                                 </div>
                                 <p className='primaryFont text-[#464444] text-center'>Local</p>
                             </div>
-                            <div className='flex flex-col items-center gap-2 cursor-pointer'>
+                            <div onClick={handleOpenAsistencia} className='flex flex-col items-center gap-2 cursor-pointer'>
                                 <div className='rounded-full bg-[#86977E] w-[50px] h-[50px] flex justify-center items-center'>
                                     <CalendarTick size="24" color="#FFFFFF" />
                                 </div>
@@ -66,8 +73,18 @@ const Cart = () => {
                 </div>
 
             </section>
-            {openModal &&
-                <ModalPresentes open={openModal} handClose={handleClose} />
+
+            {
+                openModalPresentes &&
+                <ModalPresentes open={openModalPresentes} handClose={handleClose} />
+            }
+            {
+                openModalLocal &&
+                <ModalLocal open={openModalLocal} handClose={handleClose} />
+            }
+            {
+                openModalAsistencia &&
+                <ModalAsistencia open={openModalAsistencia} handClose={handleClose} />
             }
             <ToastContainer theme="success" />
         </div>

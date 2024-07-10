@@ -3,8 +3,9 @@ interface ButtonComponentProps {
   text: String;
   icon: any;
   fontSize: any;
+  animation: boolean
 }
-const ButtonComponent: React.FC<ButtonComponentProps> = ({ text, icon, fontSize }) => {
+const ButtonComponent: React.FC<ButtonComponentProps> = ({ text, icon, fontSize, animation }) => {
   return (
     <Button
       startIcon={icon ?? null}
@@ -18,9 +19,8 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({ text, icon, fontSize 
         fontWeight: "500",
         width: "100%",
         padding: "10px 15px",
-
         letterSpacing: "-0.5px",
-        animation: "pulsar 5s infinite",
+        animation: animation ? "pulsar 5s infinite" : "",
         '&:hover': {
           background: "#6C7B66"
         }
