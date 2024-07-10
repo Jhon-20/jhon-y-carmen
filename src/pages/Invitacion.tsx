@@ -2,7 +2,7 @@ import { Logout, Monitor } from "iconsax-react"
 import logo from "../assets/img/logo.png";
 import { useNavigate } from "react-router-dom";
 
-const Systems = () => {
+const Invitacion = () => {
 
   const navigate = useNavigate();
 
@@ -76,4 +76,4 @@ const Systems = () => {
   )
 }
 
-export default Systems
+export default Invitacion

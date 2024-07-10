@@ -23,11 +23,10 @@ const ModalAsistencia: React.FC<ModalAsiistenciaProps> = ({ open, handClose }) =
         </div>
         <Box className="bg-white rounded-b-lg w-full overflow-y-auto h-[auto] md:h-[auto] lg:w-[450px]">
           <CloseSquare size="24" color="#FFFFFF" onClick={handClose} className="absolute top-40 mt-6" style={{ right: "30px" }} />
-
           <div className="w-full p-4 flex justify-center items-center flex-col gap-4">
             <h1 className="primaryFont text-3xl font-bold clr-black mt-2">La pasaremos genial!</h1>
             <span className="treeFont clr-gray200 text-sm text-center">
-              Te agradecemos que nos confirmes tu asistencia antes del 03 de enero. Tu respuesta es muy importante para nosotros.
+              Te agradecemos que nos confirmes tu asistencia antes del 01 de diciembre. Tu respuesta es muy importante para nosotros.
             </span>
             <div className="flex w-full flex-col justify-center items-center gap-4">
               <div className="flex w-full justify-center items-center gap-4">

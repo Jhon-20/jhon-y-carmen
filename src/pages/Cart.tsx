@@ -9,14 +9,15 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import ModalLocal from "./components/modals/modal_local";
 import ModalAsistencia from "./components/modals/modal_asistencia";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // const login = () => {
-    //     navigate('/system');
-    // };
+    const invitacion = () => {
+        navigate('/invitacion');
+    };
 
     const [openModalPresentes, setOpenPresentes] = useState(false);
     const [openModalLocal, setOpenLocal] = useState(false);
@@ -46,7 +47,7 @@ const Cart = () => {
                         <img className="w-[220px] md:w-[300px]" src={arcoDown} alt="arco" />
                     </div>
                     <div className='flex flex-col justify-center items-center'>
-                        <img className='sobre w-[280px] md:w-[380px] cursor-pointer mb-6' style={{ animation: "pulsar 5s infinite" }} src={sobre} alt="sobre" />
+                        <img className='sobre w-[280px] md:w-[380px] cursor-pointer mb-6' style={{ animation: "pulsar 5s infinite" }} src={sobre} alt="sobre" onClick={invitacion} />
                         <p className='text-[18px] text-[#717171] secondFont font-light mb-6'>LINKS DE AYUDA</p>
                         <div className='flex gap-10'>
                             <div onClick={handleOpenPresentes} className='flex flex-col items-center gap-2 cursor-pointer' >
