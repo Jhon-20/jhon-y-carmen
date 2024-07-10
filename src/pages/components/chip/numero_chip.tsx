@@ -3,7 +3,6 @@ import { Copy, Heart } from "iconsax-react";
 import { ToastOptions, toast } from "react-toastify";
 interface NumeroChipProps {
   label: string;
-
 }
 const NumeroChip: React.FC<NumeroChipProps> = ({ label }) => {
   const numberToCopy = label
