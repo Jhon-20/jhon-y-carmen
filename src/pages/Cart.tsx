@@ -47,7 +47,7 @@ const Cart = () => {
                         <img className="w-[220px] md:w-[300px]" src={arcoDown} alt="arco" />
                     </div>
                     <div className='flex flex-col justify-center items-center'>
-                        <img className='sobre w-[280px] md:w-[380px] cursor-pointer mb-6' style={{ animation: "pulsar 5s infinite" }} src={sobre} alt="sobre" onClick={invitacion} />
+                        <img className='sobre w-[280px] md:w-[380px] cursor-pointer' style={{ animation: "pulsar 5s infinite" }} src={sobre} alt="sobre" onClick={invitacion} />
                         <p className='text-[18px] text-[#717171] secondFont font-light mb-6'>LINKS DE AYUDA</p>
                         <div className='flex gap-10'>
                             <div onClick={handleOpenPresentes} className='flex flex-col items-center gap-2 cursor-pointer' >
