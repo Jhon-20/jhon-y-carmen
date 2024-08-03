@@ -43,7 +43,7 @@ const Invitacion = () => {
       <img src={fotoNovios} className="" alt="" />
       <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} z-10 fixed top-5`}>
 
-        <ButtonComponent text={"Si deseas regalar será muy apreciado"} icon={null} fontSize={"10px"} animation={false} />
+        <ButtonComponent text={"Si deseas regalar será muy apreciado"} icon={null} fontSize={"small"} animation={false} />
       </div>
       <div className='flex flex-col justify-center items-center'>
         <img className="w-[220px] md:w-[300px] mb-6" src={arco} alt="arco" />
