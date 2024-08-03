@@ -1,6 +1,6 @@
-import { Logout, Monitor } from "iconsax-react"
-import logo from "../assets/img/logo.png";
-import { useNavigate } from "react-router-dom";
+// import { Logout, Monitor } from "iconsax-react"
+// import logo from "../assets/img/logo.png";
+// import { useNavigate } from "react-router-dom";
 import background from "../assets/img/fondoDesktop.gif";
 import fotoNovios from "../assets/img/foto_novios.webp";
 import arco from "../assets/img/arco.png";
