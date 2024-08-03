@@ -5,8 +5,30 @@ import background from "../assets/img/fondoDesktop.gif";
 import fotoNovios from "../assets/img/foto_novios.webp";
 import arco from "../assets/img/arco.png";
 import arcoDown from "../assets/img/arco_down.png";
+import ButtonComponent from "./components/button/buttonComponent";
+import { useEffect, useState } from "react";
 const Invitacion = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY) {
+      // Scrolling down
+      setIsVisible(true);
+    } else {
+      // Scrolling up
+      setIsVisible(false);
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
   // const navigate = useNavigate();
 
 
@@ -16,8 +38,13 @@ const Invitacion = () => {
 
   return (
     <div className="w-full ">
+
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
       <img src={fotoNovios} className="" alt="" />
+      <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} z-10 fixed top-5`}>
+
+        <ButtonComponent text={"Si deseas regalar será muy apreciado"} icon={null} fontSize={"10px"} animation={false} />
+      </div>
       <div className='flex flex-col justify-center items-center'>
         <img className="w-[220px] md:w-[300px] mb-6" src={arco} alt="arco" />
         <div className='flex flex-col justify-center items-center gap-7'>
@@ -50,6 +77,7 @@ const Invitacion = () => {
             <p className="secondFont text-lg clr-gray100 ">Elizabeth Vega Pinchi</p>
           </div>
         </div>
+
         <div className="flex flex-col justify-center items-center gap-4 mb-8">
           <p className="primaryFont text-3xl clr-primay">Testigos</p>
           <div className="flex flex-col gap-1 items-center">
@@ -58,6 +86,7 @@ const Invitacion = () => {
           </div>
         </div>
       </div>
+
     </div>
 
 

@@ -9,7 +9,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({ text, icon, fontSize,
   return (
     <Button
       startIcon={icon ?? null}
-      size={fontSize ?? null}
+
       sx={{
         background: "#86977E",
         borderRadius: "50px",
@@ -17,6 +17,7 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({ text, icon, fontSize,
         fontFamily: "Montserrat",
         color: "white",
         fontWeight: "500",
+        fontSize: fontSize ?? "14px",
         width: "100%",
         padding: "10px 15px",
         letterSpacing: "-0.5px",
