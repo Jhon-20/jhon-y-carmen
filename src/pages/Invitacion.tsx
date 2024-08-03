@@ -1,77 +1,65 @@
 import { Logout, Monitor } from "iconsax-react"
 import logo from "../assets/img/logo.png";
 import { useNavigate } from "react-router-dom";
-
+import background from "../assets/img/fondoDesktop.gif";
+import fotoNovios from "../assets/img/foto_novios.webp";
+import arco from "../assets/img/arco.png";
+import arcoDown from "../assets/img/arco_down.png";
 const Invitacion = () => {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const objSystem = [
-    {
-      name: 'SRA Sistema de Regulación de Accesos'
-    },
-    {
-      name: 'SGE Sistema de Gestión de Eventos'
-    },
-    {
-      name: 'SMC Sistemas Maint Control'
-    },
 
-  ]
-  const logout = () => {
-    navigate('/');
-  };
+  // const logout = () => {
+  //   navigate('/');
+  // };
 
   return (
-    <div className=" w-full space-y-8">
-      <section className="bg-gray-50 min-h-full h-screen px-0 xl:px-10">
-        <div className="flex flex-col  px-6 py-8  md:h-screen lg:py-0">
-          <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-              <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                <img className="w-[150px]" src={logo} alt="logo" />
-              </div>
-              <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button onClick={() => logout()} type="button" className="flex justify-center items-center gap-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  <Logout size="20" color="#FFFFFF" />
-                  Cerrar sesión
-                </button>
-              </div>
-            </div>
-          </nav>
-          <div className="py-[40px] lg:py-[60px]">
-
-          </div>
-          <h1 className="text-3xl font-light">Sistema de Seguridad Integrado de Aenza</h1>
-          <div className="flex justify-center gap-8 xl:justify-between flex-wrap  pt-8">
-            {
-              objSystem.map((item) => (
-                <div className="flex flex-col justify-between w-full md:w-[360px] p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-                  <div>
-                    <Monitor size="32" color="#0345F5" />
-                    <a href="#">
-                      <h2 className="mb-2 text-[20px] font-medium  text-gray-900 ">{item.name}</h2>
-                    </a>
-                  </div>
-
-                  <a href="#" className="flex items-center w-[100px] px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Acceder
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                  </a>
-
-                </div>
-              ))
-            }
-          </div>
-
-
-
-
+    <div className="w-full ">
+      <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
+      <img src={fotoNovios} className="" alt="" />
+      <div className='flex flex-col justify-center items-center'>
+        <img className="w-[220px] md:w-[300px] mb-6" src={arco} alt="arco" />
+        <div className='flex flex-col justify-center items-center gap-7'>
+          <h1 className='primaryFont text-4xl md:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
         </div>
-      </section>
+        <img className="w-[220px] md:w-[300px] mt-6" src={arcoDown} alt="arco" />
+      </div>
+      <div className="mt-8 mb-8 pl-2 pr-2">
+        <h1 className="text-lg font-medium clr-gray200 text-center secondFont">Con la bendición de Dios y de nuestros padres</h1>
+      </div>
+      <div className="flex flex-col">
+        <div className="flex flex-col justify-center items-center gap-4 mb-8">
+          <p className="primaryFont text-3xl clr-primay">Padres del novio</p>
+          <div className="flex flex-col gap-1 items-center">
+            <p className="secondFont text-lg clr-gray100 ">Wilder Soploppuco Bobadilla</p>
+            <p className="secondFont text-lg clr-gray100 ">Mónica Lavado Rodriguez</p>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-4 mb-8">
+          <p className="primaryFont text-3xl clr-primay">Padres de la novia</p>
+          <div className="flex flex-col gap-1 items-center">
+            <p className="secondFont text-lg clr-gray100 ">Abel Alayo Rodriguez</p>
+            <p className="secondFont text-lg clr-gray100 ">Leydy Gonzales Rodriguez</p>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-4 mb-8">
+          <p className="primaryFont text-3xl clr-primay">Padrinos</p>
+          <div className="flex flex-col gap-1 items-center">
+            <p className="secondFont text-lg clr-gray100 ">Marco Montenegro</p>
+            <p className="secondFont text-lg clr-gray100 ">Elizabeth Vega Pinchi</p>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-4 mb-8">
+          <p className="primaryFont text-3xl clr-primay">Testigos</p>
+          <div className="flex flex-col gap-1 items-center">
+            <p className="secondFont text-lg clr-gray100 ">Testigo 1</p>
+            <p className="secondFont text-lg clr-gray100 ">Testigo 2</p>
+          </div>
+        </div>
+      </div>
     </div>
+
 
   )
 }
