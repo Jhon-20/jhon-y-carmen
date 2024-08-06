@@ -1,83 +1,89 @@
-:root{
-  --primary: #86977E;
-  --black  : #121212;
-  --gray100: #717171;
-  --gray200: #545454;
-  --pink   : #FBF1F2;
-  --pink600: #AB7779;
+:root {
+    --primary: #86977e;
+    --black: #121212;
+    --gray100: #717171;
+    --gray200: #545454;
+    --pink: #fbf1f2;
+    --pink600: #ab7779;
 }
 @font-face {
-  font-family: 'primaryFont';
-  src: url('./assets/fonts/BrittanySignature.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'primaryFont';
+    src: url('./assets/fonts/BrittanySignature.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-.clr-primay{
-  color: var(--primary);
+.clr-primary {
+    color: var(--primary);
 }
-.clr-black{
-  color: var(--black);
-}.clr-gray100{
-  color: var(--gray100);
-}.clr-gray200{
-  color: var(--gray200);
-}.clr-pink{
-  color: var(--pink);
+.clr-black {
+    color: var(--black);
 }
-.clr-pink600{
-  color: var(--pink600);
+.clr-gray100 {
+    color: var(--gray100);
 }
-.back-primary{
-  background-color: var(--primary);
+.clr-gray200 {
+    color: var(--gray200);
 }
-.back-black{
-  background-color: var(--black);
+.clr-pink {
+    color: var(--pink);
 }
-.back-gray100{
-  background-color: var(--gray100);
+.clr-pink600 {
+    color: var(--pink600);
 }
-.back-gray200{
-  background-color: var(--gray200);
+.back-primary {
+    background-color: var(--primary);
 }
-.back-pink{
-  background-color: var(--pink);
+.back-black {
+    background-color: var(--black);
 }
-.back-pink600{
-  background-color: var(--pink600);
+.back-gray100 {
+    background-color: var(--gray100);
 }
-
+.back-gray200 {
+    background-color: var(--gray200);
+}
+.back-pink {
+    background-color: var(--pink);
+}
+.back-pink600 {
+    background-color: var(--pink600);
+}
+body {
+    background-color: var(--pink);
+}
 #root {
-  margin: 0 auto;
-  padding: 0;
+    margin: 0 auto;
+    padding: 0;
 }
-.primaryFont{
+.primaryFont {
     font-family: 'primaryFont';
 }
-.sobre{
-  transition: transform 0.3s ease-in-out;
+.sobre {
+    transition: transform 0.3s ease-in-out;
 }
-.sobre:hover{
-  transform: scale(1.1);
+.sobre:hover {
+    transform: scale(1.1);
 }
 
 .secondFont {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  letter-spacing: -1.5px;
-  font-style: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    letter-spacing: -1.5px;
+    font-style: normal;
 }
 .treeFont {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  letter-spacing: -0.5px;
-  font-style: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.5px;
+    font-style: normal;
 }
 
 @keyframes pulsar {
-  0%, 100% {
-    transform: scale(0.9);
-}
-50% {
-    transform: scale(1);
-}
+    0%,
+    100% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1);
+    }
 }
