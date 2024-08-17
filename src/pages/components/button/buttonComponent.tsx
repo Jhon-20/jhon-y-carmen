@@ -3,15 +3,17 @@ interface ButtonComponentProps {
   text: String;
   icon: any;
   fontSize: any;
+  background: any;
   animation: boolean
 }
-const ButtonComponent: React.FC<ButtonComponentProps> = ({ text, icon, fontSize, animation }) => {
+const ButtonComponent: React.FC<ButtonComponentProps> = ({ text, icon, fontSize, background, animation }) => {
   return (
     <Button
       startIcon={icon ?? null}
       size={fontSize ?? null}
       sx={{
-        background: "#86977E",
+        background:
+          background ?? "#86977E",
         borderRadius: "50px",
         textTransform: "none",
         fontFamily: "Montserrat",

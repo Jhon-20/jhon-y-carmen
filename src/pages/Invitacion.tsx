@@ -7,8 +7,12 @@ import arco from "../assets/img/arco.png";
 import arcoDown from "../assets/img/arco_down.png";
 import hoja from "../assets/img/hoja.png";
 import arcoFecha from "../assets/img/arco_fecha.png";
+import novia from "../assets/img/novia.png";
+import novio from "../assets/img/novio.png";
 import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
+import { Link } from "react-router-dom";
+import ButtonComponent from "./components/button/buttonComponent";
 const Invitacion = () => {
 
   const weddingDate = new Date('2025-01-12T00:00:00');
@@ -46,14 +50,19 @@ const Invitacion = () => {
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
       <img src={fotoNovios} className="" alt="" />
       <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} z-10 fixed top-0`}>
-        <div className="back-primary p-2">
-          <span className="text-white text-sm treeFont px-2">🎁  Si deseas regalar aquí</span>
+        <div className="back-primary p-3 flex items-center">
+          <span className="text-white text-sm treeFont px-2">🎁  Si deseas tener un detalle con nosotros
+          </span>
+          👉
+          <Link to={""} ><div className="back-pink600 w-full p-1 rounded-full px-5 text-white text-[13px] ml-1">Aqui</div></Link>
+
         </div>
       </div>
+      {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
       <div className='flex flex-col justify-center items-center' style={{ marginTop: "-5em" }}>
         <img className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
         <div className='flex flex-col justify-center items-center gap-7'>
-          <span className="text-2xl">❣️🥰👫💍👩‍❤️‍👨💐✨</span>
+          {/* <span className="text-2xl">❣️🥰👫💍👩‍❤️‍👨💐✨</span> */}
           <p className="secondFont text-lg clr-gray100" style={{ letterSpacing: "2.5px" }}>NUESTRA BODA</p>
           <h1 className='primaryFont text-5xl md:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
         </div>
@@ -99,7 +108,14 @@ const Invitacion = () => {
           <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Nos complace invitarte al día más importante de nuestras vidas.</h1>
           {/* <img src={aros} className="h-[80px]" alt="" /><br /> */}
         </div>
-        <h1 className="primaryFont clr-primary text-center text-4xl  m-auto">👰‍♀️¡ Nos Casamos !🤵‍♂️</h1>
+
+        <div className="flex items-center justify-center gap-2">
+          <img src={novia} className="w-[46px]" alt="" />
+          <h1 className="primaryFont clr-primary text-center text-4xl  ">¡ Nos Casamos ! </h1>
+          <img src={novio} className="w-[36px]" alt="" />
+        </div>
+
+
         <div className="relative flex justify-center items-center">
           <img src={arcoFecha} className=" w-full object-cover" alt="" />
           <div className="absolute flex justify-center items-center flex-col">
@@ -125,6 +141,7 @@ const Invitacion = () => {
         <div className="p-8">
           <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Cada segundo nos acerca más al mágico día de nuestra boda.</h1>
         </div>
+        <p className="primaryFont text-3xl text-center clr-primary mb-6">Faltan...</p>
         <WeddingDay targetDate={weddingDate} />
       </div>
     </div>
