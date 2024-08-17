@@ -36,6 +36,7 @@ const ModalAsistencia: React.FC<ModalAsiistenciaProps> = ({ open, handClose }) =
                     icon={<Like1 size="22" className="white" />}
                     fontSize={"medium"}
                     animation={false}
+                    background="#ab7779"
                   />
                 </Link>
               </div>
@@ -46,6 +47,7 @@ const ModalAsistencia: React.FC<ModalAsiistenciaProps> = ({ open, handClose }) =
                     icon={<Like1 size="22" color="#FFFFFF" />}
                     fontSize={"medium"}
                     animation={false}
+                    background={null}
                   />
                 </Link>
               </div>
