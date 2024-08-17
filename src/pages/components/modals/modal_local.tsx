@@ -33,6 +33,7 @@ const ModalLocal: React.FC<ModalLocalProps> = ({ open, handClose }) => {
                   icon={<Location size="20" color="#FFFFFF" />}
                   fontSize={"medium"}
                   animation={true}
+                  background={null}
                 />
               </Link>
               <p className="text-xs treeFont clr-gray200">*En la zona del Colegio Militar Ramon Castillla</p>

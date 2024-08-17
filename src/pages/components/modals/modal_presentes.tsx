@@ -46,6 +46,7 @@ const ModalPresentes: React.FC<ModalPresentesProps> = ({ open, handClose }) => {
                 icon={<Location size="20" color="#FFFFFF" />}
                 fontSize={"medium"}
                 animation={true}
+                background={null}
               />
             </Link>
             <div className="flex gap-2 justify-center items-start md-:items-center">

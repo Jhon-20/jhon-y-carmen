@@ -12,7 +12,6 @@ import novio from "../assets/img/novio.png";
 import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
 import { Link } from "react-router-dom";
-import ButtonComponent from "./components/button/buttonComponent";
 const Invitacion = () => {
 
   const weddingDate = new Date('2025-01-12T00:00:00');
