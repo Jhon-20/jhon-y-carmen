@@ -18,7 +18,7 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({ isOpen, toggleDrawer, conte
     >
       <div
         role="presentation"
-        onClick={() => toggleDrawer(false)}
+        onClick={(e) => e.stopPropagation()}
         onKeyDown={() => toggleDrawer(false)}
 
       >

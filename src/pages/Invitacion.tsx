@@ -19,17 +19,23 @@ import celebrate from "../assets/img/celebrate.png";
 import appstore from "../assets/img/appstore.webp";
 import playstore from "../assets/img/playstore.webp";
 import qr from "../assets/img/qr.jpg";
+import yape from "../assets/img/yape.png";
+import bcp from "../assets/img/bcp-logo.png";
+import asistencia from "../assets/img/asistencia.svg";
 import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
 import { Link } from "react-router-dom";
 import ButtonComponent from "./components/button/buttonComponent";
-import { Add, CalendarTick, Camera, Gift, Location, Lovely } from "iconsax-react";
+import { Add, ArrowLeft, CalendarTick, Camera, Gallery, Gift, Home, Image, Like1, Location, Lovely, Mobile } from "iconsax-react";
 import CustomDrawer from "./components/drawer/Drawer";
 import { Box, Fab } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { Autoplay, EffectCards } from "swiper/modules";
+import IconTabs from "./components/tabs/TabCompoent";
+import NumeroChip from "./components/chip/numero_chip";
+import CloseModal from "./components/chip/close_modal";
 
 const Invitacion = () => {
 
@@ -38,7 +44,13 @@ const Invitacion = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerRegalosOpen, setIsDrawerRegalosOpen] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [value, setValue] = useState(0);
+
+  const TabhandleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
 
   const handleScroll = () => {
     if (window.scrollY > lastScrollY) {
@@ -60,8 +72,11 @@ const Invitacion = () => {
   }, [lastScrollY]);
   // const navigate = useNavigate();
 
-  const toggleDrawer = (open: boolean) => {
+  const toggleDrawerFotos = (open: boolean) => {
     setIsDrawerOpen(open);
+  };
+  const toggleDrawerRegalos = (open: boolean) => {
+    setIsDrawerRegalosOpen(open);
   };
   const toogleMenu = () => {
     setIsOpenMenu(!isOpenMenu)
@@ -79,16 +94,15 @@ const Invitacion = () => {
           <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
             <Location size="32" color="#AB7779" />
           </Fab>
-          <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
-            <CalendarTick size="32" color="#AB7779" />
-          </Fab>
           <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add">
             <Camera size="32" color="#FFFFFF" />
           </Fab>
           <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
             <Gift size="32" color="#AB7779" />
           </Fab>
-
+          <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+            <CalendarTick size="32" color="#AB7779" />
+          </Fab>
         </div>
         <Fab size="large" onClick={() => toogleMenu()} sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }} aria-label="add">
           {
@@ -103,7 +117,7 @@ const Invitacion = () => {
           <span className="text-white text-sm treeFont px-2">🎁  Si deseas tener un detalle con nosotros
           </span>
           👉
-          <Link to={""} ><div className="back-pink600 w-full p-1 rounded-full px-5 text-white text-[13px] ml-1">Aqui</div></Link>
+          <div onClick={() => toggleDrawerRegalos(true)} className="back-pink600 w-[70px] p-1 rounded-full px-5 text-white text-[13px] ml-1 ">Aqui</div>
         </div>
       </div>
       {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
@@ -231,8 +245,7 @@ const Invitacion = () => {
           <img src={vestimenta} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Outfit</h2>
           <p className="treeFont text-2xl clr-primary uppercase font-bold">Elegante</p>
-          <p className="treeFont text-lg clr-gray200 text-center mb-5">Sabemos que te verás súper</p>
-
+          <p className="treeFont text-lg clr-gray200 text-center">Sabemos que te verás súper</p>
         </div>
         <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4 w-full" >
           <img src={camara} className="h-[100px]" alt="" />
@@ -247,37 +260,47 @@ const Invitacion = () => {
             <p className="treeFont w-full m-auto text-center">- O ingresa el código -</p>
             <p className="treeFont font-bold text-2xl mb-5">HLYYKTXK</p>
           </div>
-          <div onClick={() => toggleDrawer(true)} className="w-[70%]" >
+          <div onClick={() => toggleDrawerFotos(true)} className="w-[70%]" >
             <ButtonComponent text={"Mas información"} icon={<Camera size="20" color="#FFFFFF" />} fontSize={"large"} background={"linear-gradient(90deg,#E87785,#E1656E)"} animation={false} />
           </div>
           <CustomDrawer
             isOpen={isDrawerOpen}
-            toggleDrawer={toggleDrawer}
+            toggleDrawer={toggleDrawerFotos}
             content={
-              <Box className="p-4 flex flex-col gap-5 w-full">
-                <h2 className="text-2xl secondFont font-bold clr-gray200 mb-1">Guardemos recuerdos</h2>
-                <p className="treeFont text-sm">Para poder compartir fotos de la boda de <b>Jhon y Carmen</b> en 1 solo álbum, sigue los siguientes pasos:</p>
-                <div className="flex gap-2">
-                  <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full text-white">1</p>
-                  <p className="treeFont text-lg">Descarga la aplicación.</p>
+              <Box className="flex flex-col  w-full">
+
+                <div className="relative rounded-t-lg bg-gradient-to-r from-[#86977E] to-[#495245] p-4">
+                  <h1 className="secondFont text-white font-semibold text-xl">Guardemos recuerdos</h1>
+                  <Gallery size="62" color="#FFFFFF" className="absolute right-4 bottom-0 top-2 opacity-50" />
                 </div>
-                <img src={celebrate} className="h-[100px] m-auto" alt="" />
-                <p className="m-auto treeFont font-semibold clr-primary text-center w-full">Descargala gratis</p>
-                <div className="flex m-auto">
-                  <Link to="https://itunes.apple.com/de/app/celebrate-hochzeitsfotos/id1453163913" target="_blank">
-                    <img src={appstore} alt="" />
-                  </Link>
-                  <Link to="https://play.google.com/store/apps/details?id=app.celebrate.celpho" target="_blank">
-                    <img src={playstore} alt="" />
-                  </Link>
-                </div>
-                <div className="flex gap-2 w-full">
-                  <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">2</p>
-                  <p className="treeFont text-lg">Únete escaneando el código QR o ingresando el código mostrado anteriormente.</p>
-                </div>
-                <div className="flex gap-2 w-full">
-                  <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">3</p>
-                  <p className="treeFont text-lg">Sube tus fotos a la app.</p>
+                <div className="p-4 gap-5 flex flex-col">
+                  <div onClick={() => toggleDrawerFotos(false)} className="flex gap-2 p-2 items-center back-primary w-[30%] rounded-full text-white" >
+                    <ArrowLeft size="16" color="#FFFFFF" />
+                    <p className="treeFont text-xs">Volver atrás</p>
+                  </div>
+                  <p className="treeFont text-sm">Para poder compartir fotos de la boda de <b>Jhon y Carmen</b> en 1 solo álbum, sigue los siguientes pasos:</p>
+                  <div className="flex gap-2">
+                    <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full text-white">1</p>
+                    <p className="treeFont text-lg">Descarga la aplicación.</p>
+                  </div>
+                  <img src={celebrate} className="h-[100px] m-auto" alt="" />
+                  <p className="m-auto treeFont font-semibold clr-primary text-center w-full">Descargala gratis</p>
+                  <div className="flex m-auto">
+                    <Link to="https://itunes.apple.com/de/app/celebrate-hochzeitsfotos/id1453163913" target="_blank">
+                      <img src={appstore} alt="" />
+                    </Link>
+                    <Link to="https://play.google.com/store/apps/details?id=app.celebrate.celpho" target="_blank">
+                      <img src={playstore} alt="" />
+                    </Link>
+                  </div>
+                  <div className="flex gap-2 w-full">
+                    <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">2</p>
+                    <p className="treeFont text-lg">Únete escaneando el código QR o ingresando el código mostrado anteriormente.</p>
+                  </div>
+                  <div className="flex gap-2 w-full">
+                    <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">3</p>
+                    <p className="treeFont text-lg">Sube tus fotos a la app.</p>
+                  </div>
                 </div>
               </Box>
             }
@@ -293,8 +316,8 @@ const Invitacion = () => {
             className="mySwiper"
 
             autoplay={{
-              delay: 2500, // Retraso entre cambios de slides en milisegundos
-              disableOnInteraction: false, // Mantiene el autoplay incluso si el usuario interactúa con el slider
+              delay: 2500,
+              disableOnInteraction: false,
             }}
           >
             <SwiperSlide>Slide 1</SwiperSlide>
@@ -312,10 +335,104 @@ const Invitacion = () => {
           <img src={cajaregalo} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Regalos</h2>
           <p className="treeFont text-lg text-center clr-gray200 font-medium">Tu presencia es lo más importante</p>
-          <p className="treeFont text-lg clr-gray200 text-center mb-5">Pero si deseas expresarnos tu cariño</p>
-          <Link to="https://maps.app.goo.gl/hotmDNwbgi8PqoUa8" target="_blank" className="w-[70%]" >
+          <p className="treeFont text-lg clr-gray200 text-center mb-5">Pero si deseas expresarnos tu cariño puedes hacerlo aquí</p>
+          <div onClick={() => toggleDrawerRegalos(true)} className="w-[70%]" >
             <ButtonComponent text={"Quiero regalar"} icon={<Gift size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
-          </Link>
+          </div>
+          <CustomDrawer
+            isOpen={isDrawerRegalosOpen}
+            toggleDrawer={toggleDrawerRegalos}
+            content={
+              <Box className="flex flex-col gap-5 w-full">
+                <div className="relative rounded-t-lg bg-gradient-to-r from-[#86977E] to-[#495245] p-4">
+                  <h1 className="secondFont text-white font-semibold text-xl">Regalos</h1>
+                  <Gift size="62" color="#FFFFFF" className="absolute right-4 bottom-0 top-2 opacity-50" />
+                </div>
+                <div>
+                  <div onClick={() => toggleDrawerRegalos(false)} className="flex  gap-2 mb-5 px-4 py-2 items-center back-primary w-[30%] ml-4 rounded-full text-white" >
+                    <ArrowLeft size="16" color="#FFFFFF" />
+                    <p className="treeFont text-xs">Volver atrás</p>
+                  </div>
+                  <p className="treeFont clr-gray200 px-4">Si deseas regalar puedes hacerlo de 2 formas:</p>
+                  <IconTabs
+                    tabs={[
+                      {
+                        label: 'Virtual',
+                        icon: <Mobile size={"32px"} />,
+                        content:
+                          <div className="flex flex-col gap-8  items-center h-[400px] overflow-y-auto">
+                            <img src={yape} className="w-[50px] h-[60px]" alt="" />
+                            <div className="flex w-full flex-col justify-center items-center gap-4">
+                              <h1 className="primaryFont clr-primary text-3xl text-center">Novio</h1>
+                              <NumeroChip label={"939945744"} />
+                            </div>
+                            <div className="flex w-full flex-col justify-center items-center gap-4">
+                              <h1 className="primaryFont clr-primary text-3xl text-center">Novia</h1>
+                              <NumeroChip label={"900808268"} />
+                            </div>
+                            <img src={bcp} className="w-[100px] h-[28px]" alt="" />
+                            <div className="flex w-full flex-col justify-center items-center gap-4">
+                              <NumeroChip label={"57099271924024"} />
+                              <p className="treeFont uppercase">- Interbancario -</p>
+                              <NumeroChip label={"00257019927192402401"} />
+                            </div>
+                          </div>
+
+                      },
+                      {
+                        label: 'Presencial',
+                        icon: <Home size={"32px"} />,
+                        content:
+                          <div className="flex flex-col gap-8  items-center h-[400px] overflow-y-auto">
+                            <p className="treeFont text-md clt-gray200">Si gustas dejarnos un presente de manera presencial, te dejamos la ubicación para que puedas hacerlo llegar.</p>
+                            <Link to="https://maps.app.goo.gl/CKYCHWhiKDEht3Rn9" target="_blank">
+                              <ButtonComponent
+                                text={"MZ.E Lote 93 Barrio 2B - Alto Trujillo"}
+                                icon={<Location size="20" color="#FFFFFF" />}
+                                fontSize={"medium"}
+                                animation={true}
+                                background={null}
+                              />
+                            </Link>
+                          </div>
+                      },
+                    ]}
+                  />
+                </div>
+              </Box>
+            }
+            anchor="bottom"
+          />
+        </div>
+        <div className="flex flex-col justify-center items-center mt-12 mb-8 gap-2 px-4" >
+          <img src={asistencia} className="h-[100px]" alt="" />
+          <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Asistencia</h2>
+          <p className="treeFont text-lg clr-gray200 font-semibold text-center">La pasaremos genial</p>
+          <p className="treeFont text-lg clr-gray200 text-center mb-5">Te agradecemos que nos confirmes tu asistencia antes del <b>01 de diciembre</b>. Tu respuesta es muy importante para nosotros.</p>
+          <div className="flex w-full flex-col justify-center items-center gap-4">
+            <div className="flex w-full justify-center items-center gap-4">
+              <h1 className="primaryFont text-3xl">Novio</h1>
+              <Link to="https://wa.link/zrls3s" target="_blank">
+                <ButtonComponent text={"Confirmar"}
+                  icon={<Like1 size="22" className="white" />}
+                  fontSize={"medium"}
+                  animation={false}
+                  background={null}
+                />
+              </Link>
+            </div>
+            <div className="flex w-full  justify-center items-center gap-4">
+              <h1 className="primaryFont text-3xl">Novia</h1>
+              <Link to="https://wa.link/prcsoy" target="_blank">
+                <ButtonComponent text={"Confirmar"}
+                  icon={<Like1 size="22" color="#FFFFFF" />}
+                  fontSize={"medium"}
+                  animation={false}
+                  background={null}
+                />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
