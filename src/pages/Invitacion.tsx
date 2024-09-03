@@ -35,7 +35,6 @@ import 'swiper/css/effect-cards';
 import { Autoplay, EffectCards } from "swiper/modules";
 import IconTabs from "./components/tabs/TabCompoent";
 import NumeroChip from "./components/chip/numero_chip";
-import CloseModal from "./components/chip/close_modal";
 
 const Invitacion = () => {
 
