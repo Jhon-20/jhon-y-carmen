@@ -45,7 +45,7 @@ interface IconTabsProps {
 const IconTabs: React.FC<IconTabsProps> = ({ tabs }) => {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
