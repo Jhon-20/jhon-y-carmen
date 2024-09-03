@@ -14,11 +14,13 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({ isOpen, toggleDrawer, conte
       anchor={anchor}
       open={isOpen}
       onClose={() => toggleDrawer(false)}
+
     >
       <div
         role="presentation"
         onClick={() => toggleDrawer(false)}
         onKeyDown={() => toggleDrawer(false)}
+
       >
         {content}
       </div>

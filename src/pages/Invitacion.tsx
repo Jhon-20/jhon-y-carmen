@@ -23,15 +23,22 @@ import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
 import { Link } from "react-router-dom";
 import ButtonComponent from "./components/button/buttonComponent";
-import { Camera, Gift, Location } from "iconsax-react";
+import { Add, CalendarTick, Camera, Gift, Location, Lovely } from "iconsax-react";
 import CustomDrawer from "./components/drawer/Drawer";
-import { Box } from "@mui/material";
+import { Box, Fab } from "@mui/material";
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import { Autoplay, EffectCards } from "swiper/modules";
+
 const Invitacion = () => {
 
   const weddingDate = new Date('2025-01-12T00:00:00');
 
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY > lastScrollY) {
@@ -52,11 +59,13 @@ const Invitacion = () => {
     };
   }, [lastScrollY]);
   // const navigate = useNavigate();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = (open: boolean) => {
     setIsDrawerOpen(open);
   };
+  const toogleMenu = () => {
+    setIsOpenMenu(!isOpenMenu)
+  }
 
   // const logout = () => {
   //   navigate('/');
@@ -64,6 +73,29 @@ const Invitacion = () => {
 
   return (
     <div className="w-full">
+      <Box className="fixed bottom-4 right-4" sx={{ '& > :not(style)': { m: 1 }, zIndex: 2 }}>
+
+        <div className={`flex flex-col gap-2 transition-all duration-200 ${isOpenMenu ? 'visible ' : 'h-[0] hidden'}`}>
+          <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+            <Location size="32" color="#AB7779" />
+          </Fab>
+          <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+            <CalendarTick size="32" color="#AB7779" />
+          </Fab>
+          <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add">
+            <Camera size="32" color="#FFFFFF" />
+          </Fab>
+          <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+            <Gift size="32" color="#AB7779" />
+          </Fab>
+
+        </div>
+        <Fab size="large" onClick={() => toogleMenu()} sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }} aria-label="add">
+          {
+            isOpenMenu ? <Add size="32" color="#FFFFFF" style={{ transform: "rotate(45deg)" }} /> : <Lovely size="32" color="#FFFFFF" />
+          }
+        </Fab>
+      </Box>
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
       <img src={fotoNovios} className="" alt="" />
       <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} z-10 fixed top-0`}>
@@ -72,7 +104,6 @@ const Invitacion = () => {
           </span>
           👉
           <Link to={""} ><div className="back-pink600 w-full p-1 rounded-full px-5 text-white text-[13px] ml-1">Aqui</div></Link>
-
         </div>
       </div>
       {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
@@ -116,7 +147,7 @@ const Invitacion = () => {
           <div className="flex flex-col justify-center items-center gap-4 mb-4">
             <p className="primaryFont text-3xl clr-primary">Testigos</p>
             <div className="flex flex-col gap-1 items-center">
-              <p className="treeFont text-lg clr-gray100 ">Testigo 1</p>
+              <p className="treeFont text-lg clr-gray100 ">José López Santillán</p>
               <p className="treeFont text-lg clr-gray100 ">Testigo 2</p>
             </div>
           </div>
@@ -156,7 +187,6 @@ const Invitacion = () => {
                   <span className="treeFont font-semibold clr-gray200">LU</span>
                   <span className="treeFont text-lg clr-gray100">13</span>
                 </div>
-
               </div>
               <p className="treeFont font-semibold text-xl text-center clr-gray200">4:00 PM</p>
             </div>
@@ -210,10 +240,11 @@ const Invitacion = () => {
           <p className="treeFont text-lg clr-gray200 font-semibold text-center">Armemos nuestro álbum de fotos</p>
           <p className="treeFont text-lg clr-gray200 text-center mb-5 w-full">Guardemos cada momento especial</p>
           <div className="flex flex-col gap-5 justify-center items-center">
+            <p className="treeFont w-full m-auto text-center">Escanea el código con la cámara de tu celular</p>
             <div className="bg-white p-4 rounded-lg">
               <img src={qr} className="h-[200px]" alt="" />
             </div>
-            <p className="treeFont w-full m-auto text-center">- O ingresa el código-</p>
+            <p className="treeFont w-full m-auto text-center">- O ingresa el código -</p>
             <p className="treeFont font-bold text-2xl mb-5">HLYYKTXK</p>
           </div>
           <div onClick={() => toggleDrawer(true)} className="w-[70%]" >
@@ -228,7 +259,7 @@ const Invitacion = () => {
                 <p className="treeFont text-sm">Para poder compartir fotos de la boda de <b>Jhon y Carmen</b> en 1 solo álbum, sigue los siguientes pasos:</p>
                 <div className="flex gap-2">
                   <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full text-white">1</p>
-                  <p className="treeFont text-lg">Descarga la aplicación</p>
+                  <p className="treeFont text-lg">Descarga la aplicación.</p>
                 </div>
                 <img src={celebrate} className="h-[100px] m-auto" alt="" />
                 <p className="m-auto treeFont font-semibold clr-primary text-center w-full">Descargala gratis</p>
@@ -242,12 +273,40 @@ const Invitacion = () => {
                 </div>
                 <div className="flex gap-2 w-full">
                   <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">2</p>
-                  <p className="treeFont text-lg">Únete escaneando el código QR o ingresando el código mostrado anteriormente</p>
+                  <p className="treeFont text-lg">Únete escaneando el código QR o ingresando el código mostrado anteriormente.</p>
+                </div>
+                <div className="flex gap-2 w-full">
+                  <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">3</p>
+                  <p className="treeFont text-lg">Sube tus fotos a la app.</p>
                 </div>
               </Box>
             }
             anchor="bottom"
           />
+        </div>
+        <h1 className="primaryFont text-center clr-primary text-4xl font-medium mb-10">Galería de fotos</h1>
+        <div className="flex justify-center items-center p-0 m-0">
+          <Swiper
+            effect={'cards'}
+            grabCursor={true}
+            modules={[EffectCards, Autoplay]}
+            className="mySwiper"
+
+            autoplay={{
+              delay: 2500, // Retraso entre cambios de slides en milisegundos
+              disableOnInteraction: false, // Mantiene el autoplay incluso si el usuario interactúa con el slider
+            }}
+          >
+            <SwiperSlide>Slide 1</SwiperSlide>
+            <SwiperSlide>Slide 2</SwiperSlide>
+            <SwiperSlide>Slide 3</SwiperSlide>
+            <SwiperSlide>Slide 4</SwiperSlide>
+            <SwiperSlide>Slide 5</SwiperSlide>
+            <SwiperSlide>Slide 6</SwiperSlide>
+            <SwiperSlide>Slide 7</SwiperSlide>
+            <SwiperSlide>Slide 8</SwiperSlide>
+            <SwiperSlide>Slide 9</SwiperSlide>
+          </Swiper>
         </div>
         <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4" >
           <img src={cajaregalo} className="h-[100px]" alt="" />
