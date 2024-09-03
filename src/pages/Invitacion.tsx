@@ -26,7 +26,7 @@ import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
 import { Link } from "react-router-dom";
 import ButtonComponent from "./components/button/buttonComponent";
-import { Add, ArrowLeft, CalendarTick, Camera, Gallery, Gift, Home, Image, Like1, Location, Lovely, Mobile } from "iconsax-react";
+import { Add, ArrowLeft, CalendarTick, Camera, Gallery, Gift, Home, Like1, Location, Lovely, Mobile } from "iconsax-react";
 import CustomDrawer from "./components/drawer/Drawer";
 import { Box, Fab } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -45,11 +45,6 @@ const Invitacion = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDrawerRegalosOpen, setIsDrawerRegalosOpen] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const [value, setValue] = useState(0);
-
-  const TabhandleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
 
   const handleScroll = () => {
     if (window.scrollY > lastScrollY) {
