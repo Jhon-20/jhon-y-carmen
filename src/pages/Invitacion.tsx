@@ -12,11 +12,20 @@ import novia from "../assets/img/novia.png";
 import novio from "../assets/img/novio.png";
 import aros from "../assets/img/aros.svg";
 import recepcion from "../assets/img/recepcion.svg";
+import vestimenta from "../assets/img/vestimenta.svg";
+import camara from "../assets/img/camara.svg";
+import cajaregalo from "../assets/img/caja-regalo.svg";
+import celebrate from "../assets/img/celebrate.png";
+import appstore from "../assets/img/appstore.webp";
+import playstore from "../assets/img/playstore.webp";
+import qr from "../assets/img/qr.jpg";
 import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
 import { Link } from "react-router-dom";
 import ButtonComponent from "./components/button/buttonComponent";
-import { Location } from "iconsax-react";
+import { Camera, Gift, Location } from "iconsax-react";
+import CustomDrawer from "./components/drawer/Drawer";
+import { Box } from "@mui/material";
 const Invitacion = () => {
 
   const weddingDate = new Date('2025-01-12T00:00:00');
@@ -43,7 +52,11 @@ const Invitacion = () => {
     };
   }, [lastScrollY]);
   // const navigate = useNavigate();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const toggleDrawer = (open: boolean) => {
+    setIsDrawerOpen(open);
+  };
 
   // const logout = () => {
   //   navigate('/');
@@ -146,19 +159,6 @@ const Invitacion = () => {
 
               </div>
               <p className="treeFont font-semibold text-xl text-center clr-gray200">4:00 PM</p>
-              {/* <div className="flex gap-4 ">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-[100px] h-[2px] back-gray100"></div>
-                  <span className="treeFont text-xl">Domingo</span>
-                  <div className="w-[100px] h-[2px] back-gray100"></div>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-[100px] h-[2px] back-gray100"></div>
-                  <span className="treeFont text-xl">4:00 pm</span>
-                  <div className="w-[100px] h-[2px] back-gray100"></div>
-                </div>
-              </div> */}
-
             </div>
           </div>
         </div>
@@ -170,8 +170,8 @@ const Invitacion = () => {
         <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2">
           <img src={aros} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Ceremonia</h2>
-          <p className="treeFont text-xl clr-gray200 font-medium">Iglesia MMM Alto Trujillo</p>
-          <p className="treeFont text-xl clr-gray200">Te esperamos el</p>
+          <p className="treeFont text-lg clr-gray200 font-semibold">Iglesia MMM Alto Trujillo</p>
+          <p className="treeFont text-lg clr-gray200">Te esperamos el</p>
           <div className="flex justify-between items-center gap-8 mt-5 mb-5">
             <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
             <div className="h-[60px] w-[1px] back-primary"></div>
@@ -179,14 +179,14 @@ const Invitacion = () => {
           </div>
           <p className="treeFont text-lg clr-gray200 mb-5 text-center">MZ. A Lote 6 Barrio 3A</p>
           <Link to="https://maps.app.goo.gl/3qThoqwXaq5etw536.." target="_blank" className="w-[70%]" >
-            <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={true} />
+            <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
           </Link>
         </div>
         <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2">
           <img src={recepcion} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Recepción</h2>
-          <p className="treeFont text-xl clr-gray200 font-medium">Villa Bianca Eventos</p>
-          <p className="treeFont text-xl clr-gray200">Te esperamos el</p>
+          <p className="treeFont text-lg clr-gray200 font-semibold">Villa Bianca Eventos</p>
+          <p className="treeFont text-lg clr-gray200">Te esperamos el</p>
           <div className="flex justify-between items-center gap-8 mt-5 mb-5">
             <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
             <div className="h-[60px] w-[1px] back-primary"></div>
@@ -194,7 +194,68 @@ const Invitacion = () => {
           </div>
           <p className="treeFont text-lg clr-gray200 mb-5 text-center">Calle Ricardo Palma #20 - Huanchaco</p>
           <Link to="https://maps.app.goo.gl/hotmDNwbgi8PqoUa8" target="_blank" className="w-[70%]" >
-            <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={true} />
+            <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
+          </Link>
+        </div>
+        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4" >
+          <img src={vestimenta} className="h-[100px]" alt="" />
+          <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Outfit</h2>
+          <p className="treeFont text-2xl clr-primary uppercase font-bold">Elegante</p>
+          <p className="treeFont text-lg clr-gray200 text-center mb-5">Sabemos que te verás súper</p>
+
+        </div>
+        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4 w-full" >
+          <img src={camara} className="h-[100px]" alt="" />
+          <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Fotos</h2>
+          <p className="treeFont text-lg clr-gray200 font-semibold text-center">Armemos nuestro álbum de fotos</p>
+          <p className="treeFont text-lg clr-gray200 text-center mb-5 w-full">Guardemos cada momento especial</p>
+          <div className="flex flex-col gap-5 justify-center items-center">
+            <div className="bg-white p-4 rounded-lg">
+              <img src={qr} className="h-[200px]" alt="" />
+            </div>
+            <p className="treeFont w-full m-auto text-center">- O ingresa el código-</p>
+            <p className="treeFont font-bold text-2xl mb-5">HLYYKTXK</p>
+          </div>
+          <div onClick={() => toggleDrawer(true)} className="w-[70%]" >
+            <ButtonComponent text={"Mas información"} icon={<Camera size="20" color="#FFFFFF" />} fontSize={"large"} background={"linear-gradient(90deg,#E87785,#E1656E)"} animation={false} />
+          </div>
+          <CustomDrawer
+            isOpen={isDrawerOpen}
+            toggleDrawer={toggleDrawer}
+            content={
+              <Box className="p-4 flex flex-col gap-5 w-full">
+                <h2 className="text-2xl secondFont font-bold clr-gray200 mb-1">Guardemos recuerdos</h2>
+                <p className="treeFont text-sm">Para poder compartir fotos de la boda de <b>Jhon y Carmen</b> en 1 solo álbum, sigue los siguientes pasos:</p>
+                <div className="flex gap-2">
+                  <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full text-white">1</p>
+                  <p className="treeFont text-lg">Descarga la aplicación</p>
+                </div>
+                <img src={celebrate} className="h-[100px] m-auto" alt="" />
+                <p className="m-auto treeFont font-semibold clr-primary text-center w-full">Descargala gratis</p>
+                <div className="flex m-auto">
+                  <Link to="https://itunes.apple.com/de/app/celebrate-hochzeitsfotos/id1453163913" target="_blank">
+                    <img src={appstore} alt="" />
+                  </Link>
+                  <Link to="https://play.google.com/store/apps/details?id=app.celebrate.celpho" target="_blank">
+                    <img src={playstore} alt="" />
+                  </Link>
+                </div>
+                <div className="flex gap-2 w-full">
+                  <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">2</p>
+                  <p className="treeFont text-lg">Únete escaneando el código QR o ingresando el código mostrado anteriormente</p>
+                </div>
+              </Box>
+            }
+            anchor="bottom"
+          />
+        </div>
+        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4" >
+          <img src={cajaregalo} className="h-[100px]" alt="" />
+          <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Regalos</h2>
+          <p className="treeFont text-lg text-center clr-gray200 font-medium">Tu presencia es lo más importante</p>
+          <p className="treeFont text-lg clr-gray200 text-center mb-5">Pero si deseas expresarnos tu cariño</p>
+          <Link to="https://maps.app.goo.gl/hotmDNwbgi8PqoUa8" target="_blank" className="w-[70%]" >
+            <ButtonComponent text={"Quiero regalar"} icon={<Gift size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
           </Link>
         </div>
       </div>

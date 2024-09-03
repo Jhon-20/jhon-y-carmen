@@ -50,6 +50,11 @@
 }
 body {
     background-color: var(--pink);
+    /* background-image: url('assets/img/body.png');
+    height: 100%;
+    width: 100%;
+    background-repeat: repeat-y;
+    background-size: cover; */
 }
 #root {
     margin: 0 auto;
