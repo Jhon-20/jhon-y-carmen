@@ -5,6 +5,8 @@ import { createHashRouter, RouterProvider } from 'react-router-dom';
 import Cart from './pages/Cart.tsx';
 import './App.css';
 import Invitacion from './pages/Invitacion.tsx';
+
+
 const router = createHashRouter([
     {
         path: "/",

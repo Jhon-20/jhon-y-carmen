@@ -6,6 +6,7 @@ import fotoNovios from "../assets/img/foto_novios.webp";
 import arco from "../assets/img/arco.png";
 import arcoDown from "../assets/img/arco_down.png";
 import hoja from "../assets/img/hoja.png";
+import hojaDerecha from "../assets/img/hojaDerecha.png";
 import arcoFecha from "../assets/img/arco_fecha.png";
 import calendar from "../assets/img/calendar.svg";
 import novia from "../assets/img/novia.png";
@@ -35,7 +36,8 @@ import 'swiper/css/effect-cards';
 import { Autoplay, EffectCards } from "swiper/modules";
 import IconTabs from "./components/tabs/TabCompoent";
 import NumeroChip from "./components/chip/numero_chip";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Invitacion = () => {
 
   const weddingDate = new Date('2025-01-12T00:00:00');
@@ -75,7 +77,13 @@ const Invitacion = () => {
   const toogleMenu = () => {
     setIsOpenMenu(!isOpenMenu)
   }
+  useEffect(() => {
+    AOS.init({
+      duration: 1500, // Duración más larga
+      easing: 'ease-in-out',
 
+    });
+  }, []);
   // const logout = () => {
   //   navigate('/');
   // };
@@ -116,20 +124,20 @@ const Invitacion = () => {
       </div>
       {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
       <div className='flex flex-col justify-center items-center' style={{ marginTop: "-5em" }}>
-        <img className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
-        <div className='flex flex-col justify-center items-center gap-7'>
+        <img data-aos="zoom-in" className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
+        <div data-aos="zoom-in" data-aos-duration="2000" className='flex flex-col justify-center items-center gap-7'>
           {/* <span className="text-2xl">❣️🥰👫💍👩‍❤️‍👨💐✨</span> */}
           <p className="secondFont text-lg clr-gray100" style={{ letterSpacing: "2.5px" }}>NUESTRA BODA</p>
           <h1 className='primaryFont text-5xl md:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
         </div>
-        <img className="w-[300px] md:w-[300px] mt-6" src={arcoDown} alt="arco" />
+        <img data-aos="zoom-in" className="w-[300px] md:w-[300px] mt-6" src={arcoDown} alt="arco" />
       </div>
-      <div className="relative ">
+      <div className="relative">
         <div className="p-8">
           <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Con la bendición de Dios y de nuestros padres</h1>
         </div>
-        <img src={hoja} className="absolute top-32 " style={{ zIndex: "-1" }} alt="" />
-        <img src={hoja} className="absolute top-96 transform scale-x-[-1] right-0" style={{ zIndex: "-1" }} alt="" />
+        <img data-aos="fade-right" src={hoja} className="absolute top-32 left-0" style={{ zIndex: "-1" }} alt="" />
+        <img data-aos="fade-left" src={hojaDerecha} className="absolute top-96 right-0" style={{ zIndex: "-1" }} alt="" />
         <div className="flex flex-col">
           <div className="flex flex-col justify-center items-center gap-4 mb-8">
             <p className="primaryFont text-3xl clr-primary">Padres del novio</p>
@@ -208,8 +216,8 @@ const Invitacion = () => {
         <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2">
           <img src={aros} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Ceremonia</h2>
-          <p className="treeFont text-lg clr-gray200 font-semibold">Iglesia MMM Alto Trujillo</p>
-          <p className="treeFont text-lg clr-gray200">Te esperamos el</p>
+          <p className="treeFont text-lg clr-gray200 font-semibold text-center">Iglesia MMM Alto Trujillo</p>
+          <p className="treeFont text-lg clr-gray200 text-center">Te esperamos el</p>
           <div className="flex justify-between items-center gap-8 mt-5 mb-5">
             <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
             <div className="h-[60px] w-[1px] back-primary"></div>
@@ -223,8 +231,8 @@ const Invitacion = () => {
         <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2">
           <img src={recepcion} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Recepción</h2>
-          <p className="treeFont text-lg clr-gray200 font-semibold">Villa Bianca Eventos</p>
-          <p className="treeFont text-lg clr-gray200">Te esperamos el</p>
+          <p className="treeFont text-lg clr-gray200 font-semibold text-center">Villa Bianca Eventos</p>
+          <p className="treeFont text-lg clr-gray200 text-center">Te esperamos el</p>
           <div className="flex justify-between items-center gap-8 mt-5 mb-5">
             <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
             <div className="h-[60px] w-[1px] back-primary"></div>

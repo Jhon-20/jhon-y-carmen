@@ -55,6 +55,7 @@ body {
     width: 100%;
     background-repeat: repeat-y;
     background-size: cover; */
+    overflow-x: hidden;
 }
 #root {
     margin: 0 auto;
