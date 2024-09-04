@@ -36,8 +36,8 @@ import 'swiper/css/effect-cards';
 import { Autoplay, EffectCards } from "swiper/modules";
 import IconTabs from "./components/tabs/TabCompoent";
 import NumeroChip from "./components/chip/numero_chip";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { useInView } from 'react-intersection-observer';
+
 const Invitacion = () => {
 
   const weddingDate = new Date('2025-01-12T00:00:00');
@@ -50,22 +50,15 @@ const Invitacion = () => {
 
   const handleScroll = () => {
     if (window.scrollY > lastScrollY) {
-      // Scrolling down
       setIsVisible(true);
     } else {
-      // Scrolling up
       setIsVisible(false);
     }
     setLastScrollY(window.scrollY);
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY]);
+
   // const navigate = useNavigate();
 
   const toggleDrawerFotos = (open: boolean) => {
@@ -78,20 +71,23 @@ const Invitacion = () => {
     setIsOpenMenu(!isOpenMenu)
   }
   useEffect(() => {
-    AOS.init({
-      duration: 1500, // Duración más larga
-      easing: 'ease-in-out',
-      mirror: true,
-      offset: 120
-    });
-  }, []);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   // const logout = () => {
   //   navigate('/');
   // };
 
+  const { ref: refZoomIn, inView: inViewArcoUp } = useInView({ triggerOnce: false, threshold: 0.1, });
+  const { ref: refArcoDown, inView: inViewArcoDown } = useInView({ triggerOnce: false, threshold: 0.1, });
+  const { ref: refMovLeft, inView: inViewMovLeft } = useInView({ triggerOnce: false, threshold: 0.1, });
+  const { ref: refMovRight, inView: inViewMovRight } = useInView({ triggerOnce: false, threshold: 0.1, });
   return (
 
-    <div>
+    <>
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
       <img src={fotoNovios} className="h-auto object-cover" style={{ zIndex: -1 }} alt="" />
       <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} z-10 fixed top-0`}>
@@ -126,15 +122,15 @@ const Invitacion = () => {
           </Fab>
         </Box>
 
-        <div className='flex flex-col justify-center items-center h-[500px]' >
-          <figure data-aos="zoom-in">
+        <div className='flex flex-col justify-center items-center h-[500px]'>
+          <figure className={`imageScale ${inViewArcoUp ? 'zoomIn' : 'zoomOut'}`} ref={refZoomIn}>
             <img className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
           </figure>
-          <div data-aos="zoom-in" className='flex flex-col justify-center items-center gap-7'>
+          <div className='flex flex-col justify-center items-center gap-7'>
             <p className="secondFont text-lg clr-gray100" style={{ letterSpacing: "2.5px" }}>NUESTRA BODA</p>
             <h1 className='primaryFont text-5xl md:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
           </div>
-          <figure data-aos="zoom-in">
+          <figure className={`imageScale ${inViewArcoDown ? 'zoomIn' : 'zoomOut'}`} ref={refArcoDown}>
             <img className="w-[300px] md:w-[300px] mt-6" src={arcoDown} alt="arco" />
           </figure>
         </div>
@@ -142,7 +138,9 @@ const Invitacion = () => {
           <div className="p-8">
             <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Con la bendición de Dios y de nuestros padres</h1>
           </div>
-          <img data-aos="fade-right" src={hoja} className="absolute left-0" style={{ zIndex: "-1" }} alt="" />
+          <figure className={`item-right absolute float-left left-0 top-24 ${inViewMovRight ? 'fadeRight' : 'fadeOut'}`} ref={refMovRight}>
+            <img src={hoja} style={{ zIndex: "-1" }} alt="" />
+          </figure>
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-col justify-center items-center gap-4 mb-8">
               <p className="primaryFont text-3xl clr-primary">Padres del novio</p>
@@ -174,7 +172,9 @@ const Invitacion = () => {
               </div>
             </div>
           </div>
-          <img data-aos="fade-left" src={hojaDerecha} className="absolute right-0 bottom-2" style={{ zIndex: "-1" }} alt="" />
+          <figure className={`item-left absolute float-right right-0 bottom-1 ${inViewMovLeft ? 'fadeLeft' : 'fadeOut'}`} ref={refMovLeft}>
+            <img src={hojaDerecha} style={{ zIndex: "-1" }} alt="" />
+          </figure>
         </div>
 
         <div className="p-8">
@@ -446,7 +446,7 @@ const Invitacion = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
 
 
   )
