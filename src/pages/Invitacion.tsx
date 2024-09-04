@@ -81,7 +81,8 @@ const Invitacion = () => {
     AOS.init({
       duration: 1500, // Duración más larga
       easing: 'ease-in-out',
-
+      mirror: true,
+      offset: 120
     });
   }, []);
   // const logout = () => {
@@ -89,31 +90,10 @@ const Invitacion = () => {
   // };
 
   return (
-    <div className="w-full">
-      <Box className="fixed bottom-4 right-4" sx={{ '& > :not(style)': { m: 1 }, zIndex: 2 }}>
 
-        <div className={`flex flex-col gap-2 transition-all duration-200 ${isOpenMenu ? 'visible ' : 'h-[0] hidden'}`}>
-          <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
-            <Location size="32" color="#AB7779" />
-          </Fab>
-          <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add">
-            <Camera size="32" color="#FFFFFF" />
-          </Fab>
-          <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
-            <Gift size="32" color="#AB7779" />
-          </Fab>
-          <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
-            <CalendarTick size="32" color="#AB7779" />
-          </Fab>
-        </div>
-        <Fab size="large" onClick={() => toogleMenu()} sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }} aria-label="add">
-          {
-            isOpenMenu ? <Add size="32" color="#FFFFFF" style={{ transform: "rotate(45deg)" }} /> : <Lovely size="32" color="#FFFFFF" />
-          }
-        </Fab>
-      </Box>
+    <div>
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
-      <img src={fotoNovios} className="" alt="" />
+      <img src={fotoNovios} className="h-auto object-cover" style={{ zIndex: -1 }} alt="" />
       <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} z-10 fixed top-0`}>
         <div className="back-primary p-3 flex items-center">
           <span className="text-white text-sm treeFont px-2">🎁  Si deseas tener un detalle con nosotros
@@ -123,51 +103,80 @@ const Invitacion = () => {
         </div>
       </div>
       {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
-      <div className='flex flex-col justify-center items-center' style={{ marginTop: "-5em" }}>
-        <img data-aos="zoom-in" className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
-        <div data-aos="zoom-in" data-aos-duration="2000" className='flex flex-col justify-center items-center gap-7'>
-          {/* <span className="text-2xl">❣️🥰👫💍👩‍❤️‍👨💐✨</span> */}
-          <p className="secondFont text-lg clr-gray100" style={{ letterSpacing: "2.5px" }}>NUESTRA BODA</p>
-          <h1 className='primaryFont text-5xl md:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
+      <div className="container overflow-x-hidden relative " style={{ marginTop: "-5em" }}>
+        <Box className="fixed bottom-4 right-4" sx={{ '& > :not(style)': { m: 1 }, zIndex: 2 }}>
+          <div className={`flex flex-col gap-2 transition-all duration-200 ${isOpenMenu ? 'visible ' : 'h-[0] hidden'}`}>
+            <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+              <Location size="32" color="#AB7779" />
+            </Fab>
+            <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add">
+              <Camera size="32" color="#FFFFFF" />
+            </Fab>
+            <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+              <Gift size="32" color="#AB7779" />
+            </Fab>
+            <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+              <CalendarTick size="32" color="#AB7779" />
+            </Fab>
+          </div>
+          <Fab size="large" onClick={() => toogleMenu()} sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }} aria-label="add">
+            {
+              isOpenMenu ? <Add size="32" color="#FFFFFF" style={{ transform: "rotate(45deg)" }} /> : <Lovely size="32" color="#FFFFFF" />
+            }
+          </Fab>
+        </Box>
+
+        <div className='flex flex-col justify-center items-center h-[500px]' >
+          <figure data-aos="zoom-in">
+            <img className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
+          </figure>
+          <div data-aos="zoom-in" className='flex flex-col justify-center items-center gap-7'>
+            <p className="secondFont text-lg clr-gray100" style={{ letterSpacing: "2.5px" }}>NUESTRA BODA</p>
+            <h1 className='primaryFont text-5xl md:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
+          </div>
+          <figure data-aos="zoom-in">
+            <img className="w-[300px] md:w-[300px] mt-6" src={arcoDown} alt="arco" />
+          </figure>
         </div>
-        <img data-aos="zoom-in" className="w-[300px] md:w-[300px] mt-6" src={arcoDown} alt="arco" />
-      </div>
-      <div className="relative">
-        <div className="p-8">
-          <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Con la bendición de Dios y de nuestros padres</h1>
+        <div className="flex flex-col justify-center items-center relative">
+          <div className="p-8">
+            <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Con la bendición de Dios y de nuestros padres</h1>
+          </div>
+          <img data-aos="fade-right" src={hoja} className="absolute left-0" style={{ zIndex: "-1" }} alt="" />
+          <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center gap-4 mb-8">
+              <p className="primaryFont text-3xl clr-primary">Padres del novio</p>
+              <div className="flex flex-col gap-1 items-center">
+                <p className="treeFont text-lg clr-gray100 ">Wilder Soploppuco Bobadilla</p>
+                <p className="treeFont text-lg clr-gray100 ">Mónica Lavado Rodriguez</p>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center items-center gap-4 mb-8">
+              <p className="primaryFont text-3xl clr-primary">Padres de la novia</p>
+              <div className="flex flex-col gap-1 items-center">
+                <p className="treeFont text-lg clr-gray100 ">Abel Alayo Rodriguez</p>
+                <p className="treeFont text-lg clr-gray100 ">Leydy Gonzales Rodriguez</p>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center items-center gap-4 mb-8">
+              <p className="primaryFont text-3xl clr-primary">Padrinos</p>
+              <div className="flex flex-col gap-1 items-center">
+                <p className="treeFont text-lg clr-gray100 ">Marco Montenegro</p>
+                <p className="treeFont text-lg clr-gray100 ">Elizabeth Vega Pinchi</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center items-center gap-4 mb-4">
+              <p className="primaryFont text-3xl clr-primary">Testigos</p>
+              <div className="flex flex-col gap-1 items-center">
+                <p className="treeFont text-lg clr-gray100 ">José López Santillán</p>
+                <p className="treeFont text-lg clr-gray100 ">Testigo 2</p>
+              </div>
+            </div>
+          </div>
+          <img data-aos="fade-left" src={hojaDerecha} className="absolute right-0 bottom-2" style={{ zIndex: "-1" }} alt="" />
         </div>
-        <img data-aos="fade-right" src={hoja} className="absolute top-32 left-0" style={{ zIndex: "-1" }} alt="" />
-        <img data-aos="fade-left" src={hojaDerecha} className="absolute top-96 right-0" style={{ zIndex: "-1" }} alt="" />
-        <div className="flex flex-col">
-          <div className="flex flex-col justify-center items-center gap-4 mb-8">
-            <p className="primaryFont text-3xl clr-primary">Padres del novio</p>
-            <div className="flex flex-col gap-1 items-center">
-              <p className="treeFont text-lg clr-gray100 ">Wilder Soploppuco Bobadilla</p>
-              <p className="treeFont text-lg clr-gray100 ">Mónica Lavado Rodriguez</p>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4 mb-8">
-            <p className="primaryFont text-3xl clr-primary">Padres de la novia</p>
-            <div className="flex flex-col gap-1 items-center">
-              <p className="treeFont text-lg clr-gray100 ">Abel Alayo Rodriguez</p>
-              <p className="treeFont text-lg clr-gray100 ">Leydy Gonzales Rodriguez</p>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4 mb-8">
-            <p className="primaryFont text-3xl clr-primary">Padrinos</p>
-            <div className="flex flex-col gap-1 items-center">
-              <p className="treeFont text-lg clr-gray100 ">Marco Montenegro</p>
-              <p className="treeFont text-lg clr-gray100 ">Elizabeth Vega Pinchi</p>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center gap-4 mb-4">
-            <p className="primaryFont text-3xl clr-primary">Testigos</p>
-            <div className="flex flex-col gap-1 items-center">
-              <p className="treeFont text-lg clr-gray100 ">José López Santillán</p>
-              <p className="treeFont text-lg clr-gray100 ">Testigo 2</p>
-            </div>
-          </div>
-        </div>
+
         <div className="p-8">
           <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Nos complace invitarte al día más importante de nuestras vidas.</h1>
           {/* <img src={aros} className="h-[80px]" alt="" /><br /> */}
@@ -438,6 +447,7 @@ const Invitacion = () => {
         </div>
       </div>
     </div>
+
 
   )
 }
