@@ -83,7 +83,13 @@ body {
     letter-spacing: -0.5px;
     font-style: normal;
 }
-.imageScale {
+.transition200 {
+    transition: all 0.9s;
+}
+.v-hidden {
+    visibility: hidden;
+}
+.scale {
     opacity: 0;
     transform: scale(0.5);
     transition: all 0.9s ease-out;

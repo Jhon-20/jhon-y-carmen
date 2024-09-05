@@ -23,6 +23,9 @@ import qr from "../assets/img/qr.jpg";
 import yape from "../assets/img/yape.png";
 import bcp from "../assets/img/bcp-logo.png";
 import asistencia from "../assets/img/asistencia.svg";
+import audioCorazon from "../assets/mp3/aparece-corazon.mp3"
+import nuestroamor from "../assets/mp3/asiesnuestroamor.mp3"
+
 import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
 import { Link } from "react-router-dom";
@@ -37,6 +40,8 @@ import { Autoplay, EffectCards } from "swiper/modules";
 import IconTabs from "./components/tabs/TabCompoent";
 import NumeroChip from "./components/chip/numero_chip";
 import { useInView } from 'react-intersection-observer';
+import MusicPlayer from "./components/musicPlayer/MusicPlayer";
+
 
 const Invitacion = () => {
 
@@ -47,7 +52,8 @@ const Invitacion = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDrawerRegalosOpen, setIsDrawerRegalosOpen] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-
+  const [showButton, setShowButton] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const handleScroll = () => {
     if (window.scrollY > lastScrollY) {
       setIsVisible(true);
@@ -70,6 +76,26 @@ const Invitacion = () => {
   const toogleMenu = () => {
     setIsOpenMenu(!isOpenMenu)
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!hasScrolled) {
+        setHasScrolled(true);
+        setShowButton(true);
+        playSound();
+      }
+    };
+    const playSound = () => {
+      const audio = new Audio(audioCorazon);
+      audio.play();
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+
+
+  }, [hasScrolled]);
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -82,6 +108,7 @@ const Invitacion = () => {
   // };
 
   const { ref: refZoomIn, inView: inViewArcoUp } = useInView({ triggerOnce: false, threshold: 0.1, });
+  const { ref: refTxtNosCasamos, inView: inViewTxtNosCasamos } = useInView({ triggerOnce: false, threshold: 0.1, });
   const { ref: refArcoDown, inView: inViewArcoDown } = useInView({ triggerOnce: false, threshold: 0.1, });
   const { ref: refMovLeft, inView: inViewMovLeft } = useInView({ triggerOnce: false, threshold: 0.1, });
   const { ref: refMovRight, inView: inViewMovRight } = useInView({ triggerOnce: false, threshold: 0.1, });
@@ -100,37 +127,55 @@ const Invitacion = () => {
       </div>
       {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
       <div className="container overflow-x-hidden relative " style={{ marginTop: "-5em" }}>
-        <Box className="fixed bottom-4 right-4" sx={{ '& > :not(style)': { m: 1 }, zIndex: 2 }}>
-          <div className={`flex flex-col gap-2 transition-all duration-200 ${isOpenMenu ? 'visible ' : 'h-[0] hidden'}`}>
-            <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
-              <Location size="32" color="#AB7779" />
-            </Fab>
-            <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add">
-              <Camera size="32" color="#FFFFFF" />
-            </Fab>
-            <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
-              <Gift size="32" color="#AB7779" />
-            </Fab>
-            <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
-              <CalendarTick size="32" color="#AB7779" />
-            </Fab>
-          </div>
-          <Fab size="large" onClick={() => toogleMenu()} sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }} aria-label="add">
-            {
-              isOpenMenu ? <Add size="32" color="#FFFFFF" style={{ transform: "rotate(45deg)" }} /> : <Lovely size="32" color="#FFFFFF" />
-            }
-          </Fab>
-        </Box>
+        {showButton &&
+          <div className="flex fixed justify-between items-center z-10 m-auto bottom-4 w-full px-4">
+            <div className="w-[82%]">
+              <MusicPlayer src={nuestroamor} />
+            </div>
+            <Box className="absolute right-4 bottom-0">
+              <div
+                className={`flex flex-col gap-2 ${isOpenMenu ? 'visible' : 'h-0'}`}
+                style={{
+                  height: isOpenMenu ? '250px' : '0',
+                  opacity: isOpenMenu ? 1 : 0,
+                  transition: 'height 0.2s ease, opacity 0.2s ease',
+                }}
+              >
+                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+                  <Location size="32" color="#AB7779" />
+                </Fab>
+                <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add">
+                  <Camera size="32" color="#FFFFFF" />
+                </Fab>
+                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+                  <Gift size="32" color="#AB7779" />
+                </Fab>
+                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+                  <CalendarTick size="32" color="#AB7779" />
+                </Fab>
+              </div>
 
+
+
+              <Fab className={`scale ${showButton ? 'zoomIn' : 'zoomOut'} `} size="large" onClick={() => toogleMenu()} sx={{ background: "linear-gradient(90deg,#86977E,#495245)", marginTop: isOpenMenu ? "10px" : "0" }} aria-label="add">
+                {
+                  isOpenMenu ? <Add size="32" color="#FFFFFF" style={{ transform: "rotate(45deg)" }} /> : <Lovely size="32" color="#FFFFFF" />
+                }
+              </Fab>
+
+
+            </Box>
+          </div>
+        }
         <div className='flex flex-col justify-center items-center h-[500px]'>
-          <figure className={`imageScale ${inViewArcoUp ? 'zoomIn' : 'zoomOut'}`} ref={refZoomIn}>
+          <figure className={`scale ${inViewArcoUp ? 'zoomIn' : 'zoomOut'}`} ref={refZoomIn}>
             <img className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
           </figure>
           <div className='flex flex-col justify-center items-center gap-7'>
             <p className="secondFont text-lg clr-gray100" style={{ letterSpacing: "2.5px" }}>NUESTRA BODA</p>
             <h1 className='primaryFont text-5xl md:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
           </div>
-          <figure className={`imageScale ${inViewArcoDown ? 'zoomIn' : 'zoomOut'}`} ref={refArcoDown}>
+          <figure className={`scale ${inViewArcoDown ? 'zoomIn' : 'zoomOut'}`} ref={refArcoDown}>
             <img className="w-[300px] md:w-[300px] mt-6" src={arcoDown} alt="arco" />
           </figure>
         </div>
@@ -184,7 +229,7 @@ const Invitacion = () => {
 
         <div className="flex items-center justify-center gap-2">
           <img src={novia} className="w-[46px]" alt="" />
-          <h1 className="primaryFont clr-primary text-center text-4xl  ">¡ Nos Casamos ! </h1>
+          <h1 className={`primaryFont clr-primary text-center text-4xl scale ${inViewTxtNosCasamos ? 'zoomIn' : 'zoomOut'} `} ref={refTxtNosCasamos}>¡ Nos Casamos ! </h1>
           <img src={novio} className="w-[36px]" alt="" />
         </div>
 
