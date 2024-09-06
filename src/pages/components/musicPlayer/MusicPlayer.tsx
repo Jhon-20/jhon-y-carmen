@@ -14,7 +14,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ src }) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
-  const [allowClick, setAllowClick] = useState<boolean>(true);
+  const [hasPlayedOnScroll, setHasPlayedOnScroll] = useState<boolean>(false);
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
@@ -31,18 +31,21 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ src }) => {
   }, []);
 
   useEffect(() => {
-    const handleDocumentClick = () => {
-      if (allowClick && audioRef.current && !isPlaying) {
-        audioRef.current.play().catch((error) => console.error('Error playing audio:', error));
-        setIsPlaying(true);
+    const handleScroll = () => {
+      if (!hasPlayedOnScroll && window.scrollY > 100) { // Ajusta el valor 100 para determinar cuándo se debe reproducir
+        if (audioRef.current) {
+          audioRef.current.play().catch((error) => console.error('Error playing audio:', error));
+          setIsPlaying(true);
+          setHasPlayedOnScroll(true); // Asegura que el audio se reproduzca solo una vez al hacer scroll
+        }
       }
     };
 
-    document.addEventListener('click', handleDocumentClick);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      document.removeEventListener('click', handleDocumentClick);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [allowClick, isPlaying]);
+  }, [hasPlayedOnScroll]);
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -53,10 +56,8 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ src }) => {
         audioRef.current.play().catch((error) => console.error('Error playing audio:', error));
         setIsPlaying(true);
       }
-      setAllowClick(false); // Desactiva el clic en el documento
     }
   };
-
 
   const handleProgressChange = (_event: Event, newValue: number | number[]) => {
     if (typeof newValue === 'number' && audioRef.current) {
