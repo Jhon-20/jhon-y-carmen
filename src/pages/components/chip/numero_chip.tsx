@@ -7,9 +7,7 @@ interface NumeroChipProps {
 const NumeroChip: React.FC<NumeroChipProps> = ({ label }) => {
   const numberToCopy = label
   const handleCopy = () => {
-    // Copiar el número al portapapeles
     navigator.clipboard.writeText(numberToCopy).then(() => {
-      // Mostrar un mensaje de confirmación
       toast.success('Número copiado!', toastOptions);
     });
   };

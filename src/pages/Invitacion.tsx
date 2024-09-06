@@ -41,6 +41,7 @@ import IconTabs from "./components/tabs/TabCompoent";
 import NumeroChip from "./components/chip/numero_chip";
 import { useInView } from 'react-intersection-observer';
 import MusicPlayer from "./components/musicPlayer/MusicPlayer";
+import { ToastContainer } from "react-toastify";
 
 
 const Invitacion = () => {
@@ -141,29 +142,24 @@ const Invitacion = () => {
                   transition: 'height 0.2s ease, opacity 0.2s ease',
                 }}
               >
-                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add" onClick={() => document.getElementById('ceremonia')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Location size="32" color="#AB7779" />
                 </Fab>
-                <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add">
+                <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add" onClick={() => document.getElementById('album')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Camera size="32" color="#FFFFFF" />
                 </Fab>
-                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add" onClick={() => document.getElementById('regalos')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Gift size="32" color="#AB7779" />
                 </Fab>
-                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add">
+                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add" onClick={() => document.getElementById('asistencia')?.scrollIntoView({ behavior: 'smooth' })}>
                   <CalendarTick size="32" color="#AB7779" />
                 </Fab>
               </div>
-
-
-
               <Fab className={`scale ${showButton ? 'zoomIn' : 'zoomOut'} `} size="large" onClick={() => toogleMenu()} sx={{ background: "linear-gradient(90deg,#86977E,#495245)", marginTop: isOpenMenu ? "10px" : "0" }} aria-label="add">
                 {
                   isOpenMenu ? <Add size="32" color="#FFFFFF" style={{ transform: "rotate(45deg)" }} /> : <Lovely size="32" color="#FFFFFF" />
                 }
               </Fab>
-
-
             </Box>
           </div>
         }
@@ -267,32 +263,32 @@ const Invitacion = () => {
         </div>
         <p className="primaryFont text-4xl text-center clr-primary mb-6">Faltan...</p>
         <WeddingDay targetDate={weddingDate} />
-        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2">
+        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2" id="ceremonia">
           <img src={aros} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Ceremonia</h2>
-          <p className="treeFont text-lg clr-gray200 font-semibold text-center">Iglesia MMM Alto Trujillo</p>
-          <p className="treeFont text-lg clr-gray200 text-center">Te esperamos el</p>
+          <p className="treeFont text-lg clr-gray200 font-semibold text-center w-full">Iglesia MMM Alto Trujillo</p>
+          <p className="treeFont text-lg clr-gray200 text-center w-full">Te esperamos el</p>
           <div className="flex justify-between items-center gap-8 mt-5 mb-5">
             <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
             <div className="h-[60px] w-[1px] back-primary"></div>
             <span className="secondFont text-2xl font-semibold clr-primary">4:00 PM</span>
           </div>
-          <p className="treeFont text-lg clr-gray200 mb-5 text-center">MZ. A Lote 6 Barrio 3A</p>
+          <p className="treeFont text-lg clr-gray200 mb-5 text-center w-full">MZ. A Lote 6 Barrio 3A</p>
           <Link to="https://maps.app.goo.gl/3qThoqwXaq5etw536.." target="_blank" className="w-[70%]" >
             <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
           </Link>
         </div>
-        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2">
+        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2" id="recepcion">
           <img src={recepcion} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Recepción</h2>
-          <p className="treeFont text-lg clr-gray200 font-semibold text-center">Villa Bianca Eventos</p>
-          <p className="treeFont text-lg clr-gray200 text-center">Te esperamos el</p>
+          <p className="treeFont text-lg clr-gray200 font-semibold text-center w-full">Villa Bianca Eventos</p>
+          <p className="treeFont text-lg clr-gray200 text-center w-full">Te esperamos el</p>
           <div className="flex justify-between items-center gap-8 mt-5 mb-5">
             <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
             <div className="h-[60px] w-[1px] back-primary"></div>
             <span className="secondFont text-2xl font-semibold clr-primary">6:00 PM</span>
           </div>
-          <p className="treeFont text-lg clr-gray200 mb-5 text-center">Calle Ricardo Palma #20 - Huanchaco</p>
+          <p className="treeFont text-lg clr-gray200 mb-5 text-center w-full">Calle Ricardo Palma #20 - Huanchaco</p>
           <Link to="https://maps.app.goo.gl/hotmDNwbgi8PqoUa8" target="_blank" className="w-[70%]" >
             <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
           </Link>
@@ -303,7 +299,7 @@ const Invitacion = () => {
           <p className="treeFont text-2xl clr-primary uppercase font-bold">Elegante</p>
           <p className="treeFont text-lg clr-gray200 text-center">Sabemos que te verás súper</p>
         </div>
-        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4 w-full" >
+        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4 w-full" id="album">
           <img src={camara} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Fotos</h2>
           <p className="treeFont text-lg clr-gray200 font-semibold text-center">Armemos nuestro álbum de fotos</p>
@@ -324,7 +320,6 @@ const Invitacion = () => {
             toggleDrawer={toggleDrawerFotos}
             content={
               <Box className="flex flex-col  w-full">
-
                 <div className="relative rounded-t-lg bg-gradient-to-r from-[#86977E] to-[#495245] p-4">
                   <h1 className="secondFont text-white font-semibold text-xl">Guardemos recuerdos</h1>
                   <Gallery size="62" color="#FFFFFF" className="absolute right-4 bottom-0 top-2 opacity-50" />
@@ -387,7 +382,7 @@ const Invitacion = () => {
             <SwiperSlide>Slide 9</SwiperSlide>
           </Swiper>
         </div>
-        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4" >
+        <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4" id="regalos">
           <img src={cajaregalo} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Regalos</h2>
           <p className="treeFont text-lg text-center clr-gray200 font-medium">Tu presencia es lo más importante</p>
@@ -460,7 +455,7 @@ const Invitacion = () => {
             anchor="bottom"
           />
         </div>
-        <div className="flex flex-col justify-center items-center mt-12 mb-8 gap-2 px-4" >
+        <div className="flex flex-col justify-center items-center mt-12 mb-8 gap-2 px-4" id="asistencia">
           <img src={asistencia} className="h-[100px]" alt="" />
           <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Asistencia</h2>
           <p className="treeFont text-lg clr-gray200 font-semibold text-center">La pasaremos genial</p>
@@ -491,6 +486,7 @@ const Invitacion = () => {
           </div>
         </div>
       </div>
+      <ToastContainer theme="success" />
     </>
 
 
