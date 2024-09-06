@@ -325,7 +325,7 @@ const Invitacion = () => {
                   <Gallery size="62" color="#FFFFFF" className="absolute right-4 bottom-0 top-2 opacity-50" />
                 </div>
                 <div className="p-4 gap-5 flex flex-col">
-                  <div onClick={() => toggleDrawerFotos(false)} className="flex gap-2 p-2 items-center back-primary w-[30%] rounded-full text-white" >
+                  <div onClick={() => toggleDrawerFotos(false)} className="flex gap-2 p-2 items-center back-primary w-[125px] rounded-full text-white" >
                     <ArrowLeft size="16" color="#FFFFFF" />
                     <p className="treeFont text-xs">Volver atrás</p>
                   </div>
@@ -400,7 +400,7 @@ const Invitacion = () => {
                   <Gift size="62" color="#FFFFFF" className="absolute right-4 bottom-0 top-2 opacity-50" />
                 </div>
                 <div>
-                  <div onClick={() => toggleDrawerRegalos(false)} className="flex  gap-2 mb-5 px-4 py-2 items-center back-primary w-[30%] ml-4 rounded-full text-white" >
+                  <div onClick={() => toggleDrawerRegalos(false)} className="flex  gap-2 mb-5 px-4 py-2 items-center back-primary w-[125px] ml-4 rounded-full text-white" >
                     <ArrowLeft size="16" color="#FFFFFF" />
                     <p className="treeFont text-xs">Volver atrás</p>
                   </div>
