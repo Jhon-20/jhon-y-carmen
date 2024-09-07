@@ -1,6 +1,6 @@
-import arco from "../assets/img/arco.png";
-import arcoDown from "../assets/img/arco_down.png";
-import sobre from "../assets/img/sobre.png";
+import arco from "../assets/img/arco.webp";
+import arcoDown from "../assets/img/arco_down.webp";
+import sobre from "../assets/img/sobre.webp";
 import background from "../assets/img/fondoDesktop.gif";
 import { CalendarTick, Gift, Location } from 'iconsax-react';
 import ModalPresentes from "./components/modals/modal_presentes";

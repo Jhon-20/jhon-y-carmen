@@ -3,12 +3,10 @@
 // import { useNavigate } from "react-router-dom";
 import background from "../assets/img/fondoDesktop.gif";
 import fotoNovios from "../assets/img/foto_novios.webp";
-import arco from "../assets/img/arco.png";
-import arcoDown from "../assets/img/arco_down.png";
-import hoja from "../assets/img/hoja.png";
-import hojaDerecha from "../assets/img/hojaDerecha.png";
-import arcoFecha from "../assets/img/arco_fecha.png";
-import calendar from "../assets/img/calendar.svg";
+import arco from "../assets/img/arco.webp";
+import arcoDown from "../assets/img/arco_down.webp";
+import hoja from "../assets/img/hoja.webp";
+import hojaDerecha from "../assets/img/hojaDerecha.webp"
 import novia from "../assets/img/novia.png";
 import novio from "../assets/img/novio.png";
 import aros from "../assets/img/aros.svg";
@@ -23,6 +21,7 @@ import qr from "../assets/img/qr.jpg";
 import yape from "../assets/img/yape.png";
 import bcp from "../assets/img/bcp-logo.png";
 import asistencia from "../assets/img/asistencia.svg";
+import calendario from "../assets/img/calendario.png";
 import audioCorazon from "../assets/mp3/aparece-corazon.mp3"
 import nuestroamor from "../assets/mp3/asiesnuestroamor.mp3"
 
@@ -30,7 +29,7 @@ import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
 import { Link } from "react-router-dom";
 import ButtonComponent from "./components/button/buttonComponent";
-import { Add, ArrowLeft, CalendarTick, Camera, Gallery, Gift, Home, Like1, Location, Lovely, Mobile } from "iconsax-react";
+import { Add, ArrowLeft, CalendarTick, Camera, DocumentFavorite, Gallery, Gift, Home, Like1, Location, Lovely, Mobile } from "iconsax-react";
 import CustomDrawer from "./components/drawer/Drawer";
 import { Box, Fab } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -119,7 +118,7 @@ const Invitacion = () => {
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
       <img src={fotoNovios} className="h-auto object-cover" style={{ zIndex: -1 }} alt="" />
       <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} z-10 fixed top-0`}>
-        <div className="back-primary p-3 flex items-center">
+        <div className="back-primary p-3 flex justify-center items-center">
           <span className="text-white text-sm treeFont px-2">🎁  Si deseas tener un detalle con nosotros
           </span>
           👉
@@ -127,7 +126,7 @@ const Invitacion = () => {
         </div>
       </div>
       {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
-      <div className="container overflow-x-hidden relative " style={{ marginTop: "-5em" }}>
+      <div className="container overflow-x-hidden relative mb-24" style={{ marginTop: "-5em" }}>
         {showButton &&
           <div className="flex fixed justify-between items-center z-10 m-auto bottom-4 w-full px-4">
             <div className="w-[82%]">
@@ -230,35 +229,15 @@ const Invitacion = () => {
         </div>
 
 
-        <div className="relative flex justify-center items-center">
-          <img src={arcoFecha} className=" w-full object-cover" alt="" />
-          <div className="absolute flex justify-center items-center flex-col">
-            {/* <h1 className="secondFont text-5xl font-semibold clr-pink600">12</h1> */}
-            <img src={calendar} className="right-0 absolute top-0 h-[60px]" alt="" />
-            <div className="mt-12 flex flex-col gap-5 justify-center">
-              <div className="flex flex-col gap-0">
-                <p className="secondFont text-2xl font-bold clr-gray200 ">ENERO</p>
-                <span className="treeFont text-xl">2025</span>
-              </div>
-              <div className="flex justify-between gap-10">
-                <div className="flex flex-col gap-4 justify-center items-center opacity-50">
-                  <span className="treeFont font-semibold clr-gray200">SA</span>
-                  <span className="treeFont text-lg clr-gray100">11</span>
-                </div>
-                <div className="flex flex-col gap-4 justify-center items-center">
-                  <span className="treeFont font-semibold clr-pink600">DOMINGO</span>
-                  <span className="treeFont text-2xl back-pink600 text-white p-4 rounded-full">12</span>
-                </div>
-                <div className="flex flex-col gap-4 justify-center items-center opacity-50">
-                  <span className="treeFont font-semibold clr-gray200">LU</span>
-                  <span className="treeFont text-lg clr-gray100">13</span>
-                </div>
-              </div>
-              <p className="treeFont font-semibold text-xl text-center clr-gray200">4:00 PM</p>
+        <div className="relative flex justify-center items-center mb-5">
+          <div className="p-4 mt-5">
+            <img src={calendario} alt="" />
+            <div className="w-[70%] m-auto" onClick={() => document.getElementById('asistencia')?.scrollIntoView({ behavior: 'smooth' })}>
+              <ButtonComponent text={"Quiero confirmar"} icon={<DocumentFavorite size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
             </div>
           </div>
         </div>
-        <div className="p-8">
+        <div className="p-5 mb-5">
           <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Cada segundo nos acerca más al mágico día de nuestra boda.</h1>
         </div>
         <p className="primaryFont text-4xl text-center clr-primary mb-6">Faltan...</p>

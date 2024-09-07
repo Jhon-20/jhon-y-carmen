@@ -2,7 +2,7 @@ import { Box, Modal } from "@mui/material"
 import { InfoCircle, Location } from "iconsax-react"
 import { Link } from "react-router-dom"
 import ButtonComponent from "../button/buttonComponent"
-import local from "../../../assets/img/villa01.jpg";
+import local from "../../../assets/img/local.webp";
 import CloseModal from "../chip/close_modal";
 interface ModalLocalProps {
   open: boolean;
