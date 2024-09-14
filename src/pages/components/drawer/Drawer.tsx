@@ -26,7 +26,7 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({ isOpen, toggleDrawer, conte
             md: '0',
           },
           height: {
-            xs: "630px",
+            xs: "450px",
             md: "100%"
           }
         },
