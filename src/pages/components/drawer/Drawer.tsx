@@ -15,12 +15,33 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({ isOpen, toggleDrawer, conte
       open={isOpen}
       onClose={() => toggleDrawer(false)}
 
+      sx={{
+        '& .css-4t3x6l-MuiPaper-root-MuiDrawer-paper,& .css-1160xiw-MuiPaper-root-MuiDrawer-paper,& .css-9emuhu-MuiPaper-root-MuiDrawer-paper': {
+          borderTopLeftRadius: {
+            xs: "20px",
+            md: '0'
+          },
+          borderTopRightRadius: {
+            xs: "20px",
+            md: '0',
+          },
+          height: {
+            xs: "630px",
+            md: "100%"
+          }
+        },
+
+        // '&.css-y411qr-MuiModal-root-MuiDrawer-root': {
+        //   borderTopLeftRadius: "20px",
+        //   borderTopRightRadius: "20px",
+        // }
+      }}
     >
       <div
         role="presentation"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={() => toggleDrawer(false)}
-
+        className='w-full lg:w-[400px]'
       >
         {content}
       </div>
