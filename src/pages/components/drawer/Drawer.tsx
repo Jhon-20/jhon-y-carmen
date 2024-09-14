@@ -16,6 +16,12 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({ isOpen, toggleDrawer, conte
       onClose={() => toggleDrawer(false)}
 
       sx={{
+        '& .MuiPaper-elevation': {
+          height: {
+            xs: "630px",
+            md: "100%"
+          }
+        },
         '& .css-4t3x6l-MuiPaper-root-MuiDrawer-paper,& .css-1160xiw-MuiPaper-root-MuiDrawer-paper,& .css-9emuhu-MuiPaper-root-MuiDrawer-paper': {
           borderTopLeftRadius: {
             xs: "20px",
@@ -25,10 +31,7 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({ isOpen, toggleDrawer, conte
             xs: "20px",
             md: '0',
           },
-          height: {
-            xs: "450px",
-            md: "100%"
-          }
+
         },
 
         // '&.css-y411qr-MuiModal-root-MuiDrawer-root': {
