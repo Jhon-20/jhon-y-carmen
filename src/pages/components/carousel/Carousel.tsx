@@ -17,8 +17,8 @@ const Carousel: React.FC = () => {
   let timeRunning = 3000;
   let timeAutoNext = 7000;
 
-  let runTimeOut: NodeJS.Timeout;
-  let runNextAuto: NodeJS.Timeout;
+  let runTimeOut: any;
+  let runNextAuto: any;
 
   // Simula el ciclo de vida de los componentes para manejar eventos y auto-slide
   useEffect(() => {
