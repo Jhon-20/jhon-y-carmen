@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { IconButton, Slider, Box } from '@mui/material';
-import novios from '../../../assets/img/novios.jpg'
+import novios from '../../../assets/img/image-music.webp'
 import { Pause, Play } from 'iconsax-react';
 
 

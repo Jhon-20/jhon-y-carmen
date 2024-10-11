@@ -2,26 +2,33 @@
 // import logo from "../assets/img/logo.png";
 // import { useNavigate } from "react-router-dom";
 import background from "../assets/img/fondoDesktop.gif";
-import fotoNovios from "../assets/img/foto_novios.webp";
 import arco from "../assets/img/arco.webp";
 import arcoDown from "../assets/img/arco_down.webp";
 import hoja from "../assets/img/hoja.webp";
 import hojaDerecha from "../assets/img/hojaDerecha.webp"
-import novia from "../assets/img/novia.png";
-import novio from "../assets/img/novio.png";
+import novia from "../assets/img/novia.webp";
+import novio from "../assets/img/novio.webp";
 import aros from "../assets/img/aros.svg";
 import recepcion from "../assets/img/recepcion.svg";
 import vestimenta from "../assets/img/vestimenta.svg";
 import camara from "../assets/img/camara.svg";
 import cajaregalo from "../assets/img/caja-regalo.svg";
-import celebrate from "../assets/img/celebrate.png";
+import celebrate from "../assets/img/celebrate.webp";
 import appstore from "../assets/img/appstore.webp";
 import playstore from "../assets/img/playstore.webp";
-import qr from "../assets/img/qr.jpg";
-import yape from "../assets/img/yape.png";
-import bcp from "../assets/img/bcp-logo.png";
+import qr from "../assets/img/qr.webp";
+import yape from "../assets/img/yape.webp";
+import bcp from "../assets/img/bcp-logo.webp";
 import asistencia from "../assets/img/asistencia.svg";
-import calendario from "../assets/img/calendario.png";
+import calendario from "../assets/img/calendario.webp";
+import galery_01 from "../assets/img/gal_01.webp";
+import galery_02 from "../assets/img/gal_02.webp";
+import galery_03 from "../assets/img/gal_03.webp";
+import galery_04 from "../assets/img/gal_04.webp";
+import galery_05 from "../assets/img/gal_05.webp";
+import galery_06 from "../assets/img/gal_06.webp";
+
+
 import audioCorazon from "../assets/mp3/aparece-corazon.mp3"
 import nuestroamor from "../assets/mp3/asiesnuestroamor.mp3"
 
@@ -41,6 +48,7 @@ import NumeroChip from "./components/chip/numero_chip";
 import { useInView } from 'react-intersection-observer';
 import MusicPlayer from "./components/musicPlayer/MusicPlayer";
 import { ToastContainer } from "react-toastify";
+import CarouselComponent from "./components/carousel/Carousel";
 
 
 const Invitacion = () => {
@@ -118,9 +126,11 @@ const Invitacion = () => {
   return (
 
     <>
+
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
-      <img src={fotoNovios} className="h-auto object-cover" style={{ zIndex: -1 }} alt="" />
-      <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} z-10 fixed top-0`}>
+      <CarouselComponent />
+
+      <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} fixed top-0`} style={{ zIndex: "999" }}>
         <div className="back-primary p-3 flex justify-center items-center">
           <span className="text-white text-sm treeFont px-2">🎁  Si deseas tener un detalle con nosotros
           </span>
@@ -129,9 +139,9 @@ const Invitacion = () => {
         </div>
       </div>
       {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
-      <div className={`relative mb-24 ${isMobile ? 'overflow-x-hidden' : ''} `} style={{ marginTop: "-5em" }}>
+      <div className={`relative mb-24 ${isMobile ? 'overflow-x-hidden' : ''} `} style={{ marginTop: "-1em" }}>
         {showButton &&
-          <div className="flex fixed justify-between items-center z-10 m-auto bottom-4 w-full px-4 lg:w-[40%] lg:ml-10">
+          <div className="flex fixed justify-between items-center m-auto bottom-4 w-full px-4 lg:w-[40%] lg:ml-10" style={{ zIndex: "999" }}>
             <div className="w-[82%] ">
               <MusicPlayer src={nuestroamor} />
             </div>
@@ -286,12 +296,12 @@ const Invitacion = () => {
               <p className="treeFont text-lg clr-gray200 font-semibold text-center">Armemos nuestro álbum de fotos</p>
               <p className="treeFont text-lg clr-gray200 text-center mb-5 w-full">Guardemos cada momento especial</p>
               <div className="flex flex-col gap-5 justify-center items-center">
-                <p className="treeFont w-full m-auto text-center">Escanea el código con la cámara de tu celular</p>
+                <p className="treeFont w-full m-auto text-center text-lg clr-gray200">Escanea el código con la cámara de tu celular</p>
                 <div className="bg-white p-4 rounded-lg">
                   <img src={qr} className="h-[200px]" alt="" />
                 </div>
-                <p className="treeFont w-full m-auto text-center">- O ingresa el código -</p>
-                <p className="treeFont font-bold text-2xl mb-5">HLYYKTXK</p>
+                <p className="treeFont w-full m-auto text-center clr-gray200 text-lg">- O ingresa el código -</p>
+                <p className="treeFont font-bold text-2xl mb-5 clr-gray200">HLYYKTXK</p>
               </div>
               <div onClick={() => toggleDrawerFotos(true)} className="w-[70%] lg:w-[40%]">
                 <ButtonComponent text={"Mas información"} icon={<Camera size="20" color="#FFFFFF" />} fontSize={"large"} background={"linear-gradient(90deg,#E87785,#E1656E)"} animation={false} />
@@ -353,15 +363,15 @@ const Invitacion = () => {
                   disableOnInteraction: false,
                 }}
               >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
+                <SwiperSlide> <img src={galery_01} alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src={galery_02} alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src={galery_03} alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src={galery_04} alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src={galery_05} alt="" /> </SwiperSlide>
+                <SwiperSlide> <img src={galery_06} alt="" /> </SwiperSlide>
+                {/* <SwiperSlide>Slide 7</SwiperSlide>
                 <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                <SwiperSlide>Slide 9</SwiperSlide> */}
               </Swiper>
             </div>
             <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4" id="regalos">
@@ -437,14 +447,14 @@ const Invitacion = () => {
                 anchor={isMobile ? 'bottom' : 'left'}
               />
             </div>
-            <div className="flex flex-col justify-center items-center mt-12 mb-8 gap-2 px-4" id="asistencia">
+            <div className="flex flex-col justify-center items-center mt-12 mb-32 gap-2 px-4" id="asistencia">
               <img src={asistencia} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Asistencia</h2>
               <p className="treeFont text-lg clr-gray200 font-semibold text-center">La pasaremos genial</p>
               <p className="treeFont text-lg clr-gray200 text-center mb-5">Te agradecemos que nos confirmes tu asistencia antes del <b>01 de diciembre</b>.<br /> Tu respuesta es muy importante para nosotros.</p>
               <div className="flex w-full flex-col justify-center items-center gap-4">
                 <div className="flex w-full justify-center items-center gap-4">
-                  <h1 className="primaryFont text-3xl">Novio</h1>
+                  <h1 className="primaryFont text-3xl  clr-gray200">Novio</h1>
                   <Link to="https://wa.link/zrls3s" target="_blank">
                     <ButtonComponent text={"Confirmar"}
                       icon={<Like1 size="22" className="white" />}
@@ -455,7 +465,7 @@ const Invitacion = () => {
                   </Link>
                 </div>
                 <div className="flex w-full  justify-center items-center gap-4">
-                  <h1 className="primaryFont text-3xl">Novia</h1>
+                  <h1 className="primaryFont text-3xl clr-gray200">Novia</h1>
                   <Link to="https://wa.link/prcsoy" target="_blank">
                     <ButtonComponent text={"Confirmar"}
                       icon={<Like1 size="22" color="#FFFFFF" />}

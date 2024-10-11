@@ -1,6 +1,6 @@
 import { Box, Modal } from "@mui/material"
 import { Gift, InfoCircle, Location } from "iconsax-react";
-import yape from "../../../assets/img/yape.png";
+import yape from "../../../assets/img/yape.webp";
 import NumeroChip from "../chip/numero_chip";
 import ButtonComponent from "../button/buttonComponent";
 import { Link } from "react-router-dom";
