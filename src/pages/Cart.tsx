@@ -34,7 +34,7 @@ const Cart = () => {
 
 
     return (
-        <div className=" w-full min-h-full md:h-screen flex items-center justify-center py-10">
+        <div className="w-full min-h-full md:h-screen flex items-center justify-center py-10">
             <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
             <section>
                 <div className="flex items-center flex-col md:flex-row justify-center gap-12 lg:gap-24  lg:py-0">

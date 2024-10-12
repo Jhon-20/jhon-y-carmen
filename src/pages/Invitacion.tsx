@@ -27,6 +27,7 @@ import galery_03 from "../assets/img/gal_03.webp";
 import galery_04 from "../assets/img/gal_04.webp";
 import galery_05 from "../assets/img/gal_05.webp";
 import galery_06 from "../assets/img/gal_06.webp";
+import vector from "../assets/img/vector-image.webp";
 
 
 import audioCorazon from "../assets/mp3/aparece-corazon.mp3"
@@ -49,6 +50,7 @@ import { useInView } from 'react-intersection-observer';
 import MusicPlayer from "./components/musicPlayer/MusicPlayer";
 import { ToastContainer } from "react-toastify";
 import CarouselComponent from "./components/carousel/Carousel";
+
 
 
 const Invitacion = () => {
@@ -129,7 +131,7 @@ const Invitacion = () => {
 
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
       <CarouselComponent />
-
+      <img src={vector} className="w-full h-[0px] absolute" alt="" style={{ marginTop: "-2em", zIndex: "999 !important" }} />
       <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} fixed top-0`} style={{ zIndex: "999" }}>
         <div className="back-primary p-3 flex justify-center items-center">
           <span className="text-white text-sm treeFont px-2">🎁  Si deseas tener un detalle con nosotros
@@ -243,7 +245,7 @@ const Invitacion = () => {
             </div>
             <div className="relative flex justify-center items-center mb-5">
               <div className="p-4 mt-5">
-                <img src={calendario} className="lg:h-[350px]" alt="" />
+                <img src={calendario} className="h-[310px] lg:h-[350px]" alt="" />
                 <div className="w-[70%] m-auto" onClick={() => document.getElementById('asistencia')?.scrollIntoView({ behavior: 'smooth' })}>
                   <ButtonComponent text={"Quiero confirmar"} icon={<DocumentFavorite size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
                 </div>

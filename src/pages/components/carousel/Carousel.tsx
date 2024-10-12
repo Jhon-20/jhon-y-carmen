@@ -3,6 +3,7 @@ import './carousel.css'
 import imgSlide_01_mobile from "../../../assets/img/banner_01_mobile.webp";
 import imgSlide_02_mobile from "../../../assets/img/banner_02_mobile.webp";
 import imgSlide_03_mobile from "../../../assets/img/banner_03_mobile.webp";
+import { ArrowLeft2, ArrowRight2 } from 'iconsax-react';
 
 
 const Carousel: React.FC = () => {
@@ -127,24 +128,24 @@ const Carousel: React.FC = () => {
         <div className="thumbnail" ref={thumbnailBorderDom}>
           <div className="item">
             <img src={imgSlide_01_mobile} alt="Thumbnail 1" />
-            <div className="content">
-              <div className="title">Name Slider</div>
+            {/* <div className="content">
+              <div className="title">Jhon y Carmen</div>
               <div className="description">Description</div>
-            </div>
+            </div> */}
           </div>
           <div className="item">
             <img src={imgSlide_02_mobile} alt="Thumbnail 2" />
-            <div className="content">
+            {/* <div className="content">
               <div className="title">Name Slider</div>
               <div className="description">Description</div>
-            </div>
+            </div> */}
           </div>
           <div className="item">
             <img src={imgSlide_03_mobile} alt="Thumbnail 2" />
-            <div className="content">
+            {/* <div className="content">
               <div className="title">Name Slider</div>
               <div className="description">Description</div>
-            </div>
+            </div> */}
           </div>
 
 
@@ -152,8 +153,8 @@ const Carousel: React.FC = () => {
         </div>
 
         <div className="arrows">
-          <button id="prev" ref={prevDom}>a</button>
-          <button id="next" ref={nextDom}>&gt;</button>
+          <button id="prev" className='flex justify-center items-center' ref={prevDom}><ArrowLeft2 size="20" color="#FFFFFF" /></button>
+          <button id="next" className='flex justify-center items-center' ref={nextDom}><ArrowRight2 size="20" color="#FFFFFF" /></button>
         </div>
 
         <div className="time" ref={timeDom}></div>

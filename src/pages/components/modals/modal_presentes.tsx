@@ -29,11 +29,11 @@ const ModalPresentes: React.FC<ModalPresentesProps> = ({ open, handClose }) => {
             <img src={yape} className="flex justify-center items-center m-auto" alt="Yape" />
             <div className="flex w-full flex-col justify-center items-center gap-4 md:flex-row">
               <div className="flex w-full flex-col justify-center items-center gap-4">
-                <h1 className="primaryFont text-3xl">Novio</h1>
+                <h1 className="primaryFont text-3xl clr-gray200">Novio</h1>
                 <NumeroChip label={"939945744"} />
               </div>
               <div className="flex w-full flex-col justify-center items-center gap-4">
-                <h1 className="primaryFont text-3xl">Novia</h1>
+                <h1 className="primaryFont text-3xl clr-gray200">Novia</h1>
                 <NumeroChip label={"900808268"} />
               </div>
             </div>
