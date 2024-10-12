@@ -130,8 +130,9 @@ const Invitacion = () => {
     <>
 
       <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
+
       <CarouselComponent />
-      <img src={vector} className="w-full h-[0px] absolute" alt="" style={{ marginTop: "-2em", zIndex: "999 !important" }} />
+      <img src={vector} className="w-full h-[40px] absolute" alt="" style={{ marginTop: "-2em", zIndex: "999 !important" }} />
       <div className={`w-full floating-button ${isVisible ? 'visible' : 'hidden'} fixed top-0`} style={{ zIndex: "999" }}>
         <div className="back-primary p-3 flex justify-center items-center">
           <span className="text-white text-sm treeFont px-2">🎁  Si deseas tener un detalle con nosotros
@@ -177,7 +178,8 @@ const Invitacion = () => {
             </Box>
           </div>
         }
-        <div className="lg:flex">
+        <div className="relative lg:flex">
+
           <div className='flex flex-col justify-center items-center h-[500px]  lg:sticky lg:top-10 lg:w-[40%]'>
             <figure className={`scale ${inViewArcoUp ? 'zoomIn' : 'zoomOut'}`} ref={refZoomIn}>
               <img className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
