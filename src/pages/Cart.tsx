@@ -1,7 +1,7 @@
 import arco from "../assets/img/arco.webp";
 import arcoDown from "../assets/img/arco_down.webp";
 import sobre from "../assets/img/sobre.webp";
-import background from "../assets/img/fondoDesktop.gif";
+import background2 from "../assets/video/vd_02.mp4";
 import { CalendarTick, Gift, Location } from 'iconsax-react';
 import ModalPresentes from "./components/modals/modal_presentes";
 import { useState } from "react";
@@ -11,7 +11,7 @@ import ModalLocal from "./components/modals/modal_local";
 import ModalAsistencia from "./components/modals/modal_asistencia";
 import { useNavigate } from "react-router-dom";
 
-const Cart = () => {
+const Cart: React.FC = () => {
 
     const navigate = useNavigate();
 
@@ -35,7 +35,9 @@ const Cart = () => {
 
     return (
         <div className="w-full min-h-full md:h-screen flex items-center justify-center py-10">
-            <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
+            <video className='fixed top-0 left-0 w-full min-h-full opacity-40 object-cover' style={{ zIndex: -1 }} autoPlay muted loop>
+                <source src={background2} type="video/mp4" />
+            </video>
             <section>
                 <div className="flex items-center flex-col md:flex-row justify-center gap-12 lg:gap-24  lg:py-0">
                     <div className='flex flex-col justify-center items-center'>
