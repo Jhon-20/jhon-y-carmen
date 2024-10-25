@@ -44,7 +44,7 @@ const Cart: React.FC = () => {
                         <img className="w-[220px] md:w-[300px] mb-6" src={arco} alt="arco" />
                         <div className='flex flex-col justify-center items-center gap-7'>
                             <h1 className='primaryFont text-4xl md:text-5xl text-[#464444]'>Jhon y Carmen</h1>
-                            <p className='secondFont text-xl md:text-2xl  font-normal text-[#717171]'>12 de Enero | 04:00 pm</p>
+                            <p className='secondFont text-xl md:text-2xl  font-normal text-[#717171]'>12 de Enero | 02:30 pm</p>
                         </div>
                         <img className="w-[220px] md:w-[300px]" src={arcoDown} alt="arco" />
                     </div>

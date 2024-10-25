@@ -28,6 +28,7 @@ import galery_04 from "../assets/img/gal_04.webp";
 import galery_05 from "../assets/img/gal_05.webp";
 import galery_06 from "../assets/img/gal_06.webp";
 import vector from "../assets/img/vector-image.webp";
+import mesas from "../assets/img/mesas.webp";
 
 
 import audioCorazon from "../assets/mp3/aparece-corazon.mp3"
@@ -129,7 +130,7 @@ const Invitacion = () => {
 
     <>
 
-      <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1 }} alt="" />
+      <img src={background} className='fixed top-0 left-0 w-full min-h-full object-cover' style={{ zIndex: -1, opacity: "0.2" }} alt="" />
 
       <CarouselComponent />
       <img src={vector} className="w-full h-[40px] absolute" alt="" style={{ marginTop: "-2em", zIndex: "999 !important" }} />
@@ -145,10 +146,8 @@ const Invitacion = () => {
       <div className={`relative mb-24 ${isMobile ? 'overflow-x-hidden' : ''} `} style={{ marginTop: "-1em" }}>
         {showButton &&
           <div className="flex fixed justify-between items-center m-auto bottom-4 w-full px-4 lg:w-[40%] lg:ml-10" style={{ zIndex: "999" }}>
-            <div className="w-[82%] ">
-              <MusicPlayer src={nuestroamor} />
-            </div>
-            <Box className="absolute right-4 bottom-0">
+
+            <Box className="absolute right-4 bottom-14">
               <div
                 className={`flex flex-col gap-2 ${isOpenMenu ? 'visible' : 'h-0'}`}
                 style={{
@@ -197,7 +196,7 @@ const Invitacion = () => {
               <div className="p-8">
                 <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Con la bendición de Dios y de nuestros padres</h1>
               </div>
-              <figure className={`item-right absolute float-left left-0 top-24 lg:hidden ${inViewMovRight ? 'fadeRight' : 'fadeOut'}`} ref={refMovRight}>
+              <figure className={`item-right absolute float-left left-0 lg:hidden ${inViewMovRight ? 'fadeRight' : 'fadeOut'}`} ref={refMovRight} style={{ top: "px" }}>
                 <img src={hoja} style={{ zIndex: "-1" }} alt="" />
               </figure>
               <div className="flex flex-col justify-center items-center lg:grid lg:grid-cols-2">
@@ -266,7 +265,7 @@ const Invitacion = () => {
               <div className="flex justify-between items-center gap-8 mt-5 mb-5">
                 <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
                 <div className="h-[60px] w-[1px] back-primary"></div>
-                <span className="secondFont text-2xl font-semibold clr-primary">4:00 PM</span>
+                <span className="secondFont text-2xl font-semibold clr-primary">2:30 PM</span>
               </div>
               <p className="treeFont text-lg clr-gray200 mb-5 text-center w-full">MZ. A Lote 6 Barrio 3A</p>
               <Link to="https://maps.app.goo.gl/3qThoqwXaq5etw536.." target="_blank" className="w-[70%] lg:w-[40%]" >
@@ -451,7 +450,7 @@ const Invitacion = () => {
                 anchor={isMobile ? 'bottom' : 'left'}
               />
             </div>
-            <div className="flex flex-col justify-center items-center mt-12 mb-32 gap-2 px-4" id="asistencia">
+            <div className="flex flex-col justify-center items-center mt-12 mb-8 gap-2 px-4" id="asistencia">
               <img src={asistencia} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Asistencia</h2>
               <p className="treeFont text-lg clr-gray200 font-semibold text-center">La pasaremos genial</p>
@@ -481,9 +480,16 @@ const Invitacion = () => {
                 </div>
               </div>
             </div>
+            <img src={mesas} alt="" className="w-full h-[400px] object-cover" />
           </div>
         </div>
       </div>
+      {showButton &&
+        <div className="w-full fixed bottom-0" style={{ zIndex: "3" }}>
+          <MusicPlayer src={nuestroamor} />
+        </div>
+      }
+
       <ToastContainer theme="success" />
     </>
 

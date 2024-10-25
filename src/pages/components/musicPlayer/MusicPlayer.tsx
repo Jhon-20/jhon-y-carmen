@@ -66,7 +66,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ src }) => {
     }
   };
   return (
-    <Box className="flex flex-col w-full justify-center p-2 rounded-lg gap-1" sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }}>
+    <Box className="flex flex-col w-full justify-center p-2  gap-1" sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }}>
       <Box className="flex justify-between gap-16" onClick={(e) => e.stopPropagation()}>
         <div className='flex gap-2'>
           <img src={novios} className='w-[32px] h-[32px] object-cover rounded-sm' alt="" />
