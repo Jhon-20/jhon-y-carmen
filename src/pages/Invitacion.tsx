@@ -28,7 +28,8 @@ import galery_04 from "../assets/img/gal_04.webp";
 import galery_05 from "../assets/img/gal_05.webp";
 import galery_06 from "../assets/img/gal_06.webp";
 import vector from "../assets/img/vector-image.webp";
-import mesas from "../assets/img/mesas.webp";
+import mesas from "../assets/img/altar.webp";
+import aves from "../assets/img/aves.svg";
 
 
 import audioCorazon from "../assets/mp3/aparece-corazon.mp3"
@@ -145,7 +146,7 @@ const Invitacion = () => {
       {/* <ButtonComponent text={"aquí"} icon={null} fontSize={"small"} animation={false} background={"#AB7779"} /> */}
       <div className={`relative mb-24 ${isMobile ? 'overflow-x-hidden' : ''} `} style={{ marginTop: "-1em" }}>
         {showButton &&
-          <div className="flex fixed justify-between items-center m-auto bottom-4 w-full px-4 lg:w-[40%] lg:ml-10" style={{ zIndex: "999" }}>
+          <div className="flex fixed justify-between items-center m-auto bottom-8 w-full px-4 lg:w-[40%] lg:ml-10" style={{ zIndex: "999" }}>
 
             <Box className="absolute right-4 bottom-14">
               <div
@@ -450,7 +451,7 @@ const Invitacion = () => {
                 anchor={isMobile ? 'bottom' : 'left'}
               />
             </div>
-            <div className="flex flex-col justify-center items-center mt-12 mb-8 gap-2 px-4" id="asistencia">
+            <div className="flex flex-col justify-center items-center mt-12 mb-12 gap-2 px-4" id="asistencia">
               <img src={asistencia} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Asistencia</h2>
               <p className="treeFont text-lg clr-gray200 font-semibold text-center">La pasaremos genial</p>
@@ -480,12 +481,15 @@ const Invitacion = () => {
                 </div>
               </div>
             </div>
+            <img src={aves} className="h-[40px] float-left" alt="" />
+            <img src={aves} className="h-[40px] float-right " style={{ transform: "scaleX(-1)" }} alt="" />
+            <h1 className="primaryFont text-3xl text-center mb-8">Te esperamos...</h1>
             <img src={mesas} alt="" className="w-full h-[400px] object-cover" />
           </div>
         </div>
       </div>
       {showButton &&
-        <div className="w-full fixed bottom-0" style={{ zIndex: "3" }}>
+        <div className="w-full fixed bottom-0" style={{ zIndex: "999" }}>
           <MusicPlayer src={nuestroamor} />
         </div>
       }

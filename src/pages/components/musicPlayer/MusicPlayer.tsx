@@ -66,13 +66,13 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ src }) => {
     }
   };
   return (
-    <Box className="flex flex-col w-full justify-center p-2  gap-1" sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }}>
+    <Box className="flex flex-col w-full justify-center p-4  gap-1" sx={{ background: "linear-gradient(90deg,#86977E,#495245)" }}>
       <Box className="flex justify-between gap-16" onClick={(e) => e.stopPropagation()}>
         <div className='flex gap-2'>
-          <img src={novios} className='w-[32px] h-[32px] object-cover rounded-sm' alt="" />
+          <img src={novios} className='w-[40px] h-[40px] object-cover rounded-sm' alt="" />
           <div className='flex flex-col'>
-            <span className='treeFont text-sm font-medium text-white'>Así es nuestro amor</span>
-            <p className='treeFont text-xs text-white'>Jhon & Carmen</p>
+            <span className='treeFont text-md font-medium text-white'>Así es nuestro amor</span>
+            <p className='treeFont text-sm text-white'>Jhon & Carmen</p>
           </div>
         </div>
         <audio ref={audioRef} src={src} />
