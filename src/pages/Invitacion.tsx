@@ -152,17 +152,17 @@ const Invitacion = () => {
               <div
                 className={`flex flex-col gap-2 ${isOpenMenu ? 'visible' : 'h-0'}`}
                 style={{
-                  height: isOpenMenu ? '250px' : '0',
+                  height: isOpenMenu ? '200px' : '0',
                   opacity: isOpenMenu ? 1 : 0,
                   transition: 'height 0.2s ease, opacity 0.2s ease',
                 }}
               >
-                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add" onClick={() => document.getElementById('ceremonia')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add" onClick={() => document.getElementById('recepcion')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Location size="32" color="#AB7779" />
                 </Fab>
-                <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add" onClick={() => document.getElementById('album')?.scrollIntoView({ behavior: 'smooth' })}>
+                {/* <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add" onClick={() => document.getElementById('album')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Camera size="32" color="#FFFFFF" />
-                </Fab>
+                </Fab> */}
                 <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add" onClick={() => document.getElementById('regalos')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Gift size="32" color="#AB7779" />
                 </Fab>
@@ -223,13 +223,13 @@ const Invitacion = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col justify-center items-center gap-4 mb-4">
+                {/* <div className="flex flex-col justify-center items-center gap-4 mb-4">
                   <p className="primaryFont text-3xl clr-primary">Testigos</p>
                   <div className="flex flex-col gap-1 items-center">
                     <p className="treeFont text-lg clr-gray100 ">José López Santillán</p>
                     <p className="treeFont text-lg clr-gray100 ">Testigo 2</p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <figure className={`item-left absolute float-right right-0 bottom-1 ${inViewMovLeft ? 'fadeLeft' : 'fadeOut'}`} ref={refMovLeft}>
                 <img src={hojaDerecha} style={{ zIndex: "-1" }} alt="" />
@@ -258,7 +258,7 @@ const Invitacion = () => {
             </div>
             <p className="primaryFont text-4xl text-center clr-primary mb-6">Faltan...</p>
             <WeddingDay targetDate={weddingDate} />
-            <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2" id="ceremonia">
+            {/* <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2" id="ceremonia">
               <img src={aros} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Ceremonia</h2>
               <p className="treeFont text-lg clr-gray200 font-semibold text-center w-full">Iglesia MMM Alto Trujillo</p>
@@ -272,16 +272,16 @@ const Invitacion = () => {
               <Link to="https://maps.app.goo.gl/3qThoqwXaq5etw536.." target="_blank" className="w-[70%] lg:w-[40%]" >
                 <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
               </Link>
-            </div>
+            </div> */}
             <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2" id="recepcion">
               <img src={recepcion} className="h-[100px]" alt="" />
-              <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Recepción</h2>
+              <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Ceremonia</h2>
               <p className="treeFont text-lg clr-gray200 font-semibold text-center w-full">Villa Bianca Eventos</p>
               <p className="treeFont text-lg clr-gray200 text-center w-full">Te esperamos el</p>
               <div className="flex justify-between items-center gap-8 mt-5 mb-5">
                 <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
                 <div className="h-[60px] w-[1px] back-primary"></div>
-                <span className="secondFont text-2xl font-semibold clr-primary">6:00 PM</span>
+                <span className="secondFont text-2xl font-semibold clr-primary">2:30 PM</span>
               </div>
               <p className="treeFont text-lg clr-gray200 mb-5 text-center w-full">Calle Ricardo Palma #20 - Huanchaco</p>
               <Link to="https://maps.app.goo.gl/hotmDNwbgi8PqoUa8" target="_blank" className="w-[70%] lg:w-[40%]" >
@@ -294,7 +294,7 @@ const Invitacion = () => {
               <p className="treeFont text-2xl clr-primary uppercase font-bold">Elegante</p>
               <p className="treeFont text-lg clr-gray200 text-center">Sabemos que te verás súper</p>
             </div>
-            <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4 w-full" id="album">
+            {/* <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4 w-full" id="album">
               <img src={camara} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Fotos</h2>
               <p className="treeFont text-lg clr-gray200 font-semibold text-center">Armemos nuestro álbum de fotos</p>
@@ -353,7 +353,7 @@ const Invitacion = () => {
                 }
                 anchor={isMobile ? 'bottom' : 'left'}
               />
-            </div>
+            </div> */}
             <h1 className="primaryFont text-center clr-primary text-4xl font-medium mb-10">Galería de fotos</h1>
             <div className="flex justify-center items-center p-0 m-0">
               <Swiper
