@@ -182,24 +182,24 @@ const Invitacion = () => {
               </figure>
               <div className="flex flex-col justify-center items-center lg:grid lg:grid-cols-2">
                 <div className="flex flex-col justify-center items-center gap-4 mb-8">
-                  <p className="primaryFont text-2xl clr-primary">Padres del novio</p>
+                  <p className="primaryFont text-3xl clr-primary">Padres del novio</p>
                   <div className="flex flex-col gap-1 items-center">
-                    <p className="treeFont text-md clr-gray100 ">Wilder Soploppuco Bobadilla</p>
-                    <p className="treeFont text-md clr-gray100 ">Mónica Lavado Rodriguez</p>
+                    <p className="treeFont text-lg clr-gray100 ">Wilder Soploppuco Bobadilla</p>
+                    <p className="treeFont text-lg clr-gray100 ">Mónica Lavado Rodriguez</p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4 mb-8">
-                  <p className="primaryFont text-2xl clr-primary">Padres de la novia</p>
+                  <p className="primaryFont text-3xl clr-primary">Padres de la novia</p>
                   <div className="flex flex-col gap-1 items-center">
-                    <p className="treeFont text-md clr-gray100 ">Abel Alayo Rodriguez</p>
-                    <p className="treeFont text-md clr-gray100 ">Leydy Gonzales Rodriguez</p>
+                    <p className="treeFont text-lg clr-gray100 ">Abel Alayo Rodriguez</p>
+                    <p className="treeFont text-lg clr-gray100 ">Leydy Gonzales Rodriguez</p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4 mb-8">
-                  <p className="primaryFont text-2xl clr-primary">Padrinos</p>
+                  <p className="primaryFont text-3xl clr-primary">Padrinos</p>
                   <div className="flex flex-col gap-1 items-center">
-                    <p className="treeFont text-md clr-gray100 ">Marco Montenegro</p>
-                    <p className="treeFont text-md clr-gray100 ">Elizabeth Vega Pinchi</p>
+                    <p className="treeFont text-lg clr-gray100 ">Marco Montenegro</p>
+                    <p className="treeFont text-lg clr-gray100 ">Elizabeth Vega Pinchi</p>
                   </div>
                 </div>
               </div>
