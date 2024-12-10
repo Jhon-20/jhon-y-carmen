@@ -11,10 +11,10 @@ const renderer: CountdownRendererFn = ({ days, hours, minutes, seconds, complete
 
 
       <div className='flex flex-1 gap-2 justify-center p-4 flex-wrap' >
-        <div className='back-primary w-[100px] h-[120px] flex justify-center treeFont font-medium items-center flex-col text-white text-center rounded-lg' style={{ animation: "pulsar 5s infinite" }}><span className='text-lg'>{days}</span><span className='text-md'>Días</span></div>
-        <div className='back-primary w-[100px] h-[120px] flex justify-center treeFont font-medium items-center flex-col text-white text-center rounded-lg' style={{ animation: "pulsar 5s infinite" }}><span className='text-lg'>{hours} </span><span className='text-md'>Horas</span></div>
-        <div className='back-primary w-[100px] h-[120px] flex justify-center treeFont font-medium items-center flex-col text-white text-center rounded-lg' style={{ animation: "pulsar 5s infinite" }}><span className='text-lg'>{minutes}</span><span className='text-md'>Minutos</span></div>
-        <div className='back-primary w-[100px] h-[120px] flex justify-center treeFont font-medium items-center flex-col text-white text-center rounded-lg' style={{ animation: "pulsar 5s infinite" }}><span className='text-lg'>{seconds} </span><span className='text-md'>Segundos</span></div>
+        <div className='back-primary w-[100px] h-[120px] flex justify-center treeFont font-medium items-center flex-col text-white text-center rounded-lg' style={{ animation: "pulsar 5s infinite" }}><span className='text-md'>{days}</span><span className='text-md'>Días</span></div>
+        <div className='back-primary w-[100px] h-[120px] flex justify-center treeFont font-medium items-center flex-col text-white text-center rounded-lg' style={{ animation: "pulsar 5s infinite" }}><span className='text-md'>{hours} </span><span className='text-md'>Horas</span></div>
+        <div className='back-primary w-[100px] h-[120px] flex justify-center treeFont font-medium items-center flex-col text-white text-center rounded-lg' style={{ animation: "pulsar 5s infinite" }}><span className='text-md'>{minutes}</span><span className='text-md'>Minutos</span></div>
+        <div className='back-primary w-[100px] h-[120px] flex justify-center treeFont font-medium items-center flex-col text-white text-center rounded-lg' style={{ animation: "pulsar 5s infinite" }}><span className='text-md'>{seconds} </span><span className='text-md'>Segundos</span></div>
 
       </div>
 

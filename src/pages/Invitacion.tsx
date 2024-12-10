@@ -8,15 +8,9 @@ import hoja from "../assets/img/hoja.webp";
 import hojaDerecha from "../assets/img/hojaDerecha.webp"
 import novia from "../assets/img/novia.webp";
 import novio from "../assets/img/novio.webp";
-import aros from "../assets/img/aros.svg";
 import recepcion from "../assets/img/recepcion.svg";
 import vestimenta from "../assets/img/vestimenta.svg";
-import camara from "../assets/img/camara.svg";
 import cajaregalo from "../assets/img/caja-regalo.svg";
-import celebrate from "../assets/img/celebrate.webp";
-import appstore from "../assets/img/appstore.webp";
-import playstore from "../assets/img/playstore.webp";
-import qr from "../assets/img/qr.webp";
 import yape from "../assets/img/yape.webp";
 import bcp from "../assets/img/bcp-logo.webp";
 import asistencia from "../assets/img/asistencia.svg";
@@ -39,7 +33,7 @@ import { useEffect, useState } from "react";
 import WeddingDay from "./components/weddingDay/weddingDay";
 import { Link } from "react-router-dom";
 import ButtonComponent from "./components/button/buttonComponent";
-import { Add, ArrowLeft, CalendarTick, Camera, DocumentFavorite, Gallery, Gift, Home, Like1, Location, Lovely, Mobile } from "iconsax-react";
+import { Add, ArrowLeft, CalendarTick, DocumentFavorite, Gift, Home, Like1, Location, Lovely, Mobile } from "iconsax-react";
 import CustomDrawer from "./components/drawer/Drawer";
 import { Box, Fab, useMediaQuery, useTheme } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -61,7 +55,7 @@ const Invitacion = () => {
 
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  //const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDrawerRegalosOpen, setIsDrawerRegalosOpen] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [showButton, setShowButton] = useState(false);
@@ -79,12 +73,6 @@ const Invitacion = () => {
   };
 
 
-
-  // const navigate = useNavigate();
-
-  const toggleDrawerFotos = (open: boolean) => {
-    setIsDrawerOpen(open);
-  };
   const toggleDrawerRegalos = (open: boolean) => {
     setIsDrawerRegalosOpen(open);
   };
@@ -118,10 +106,6 @@ const Invitacion = () => {
     };
   }, [lastScrollY]);
 
-  // const logout = () => {
-  //   navigate('/');
-  // };
-
   const { ref: refZoomIn, inView: inViewArcoUp } = useInView({ triggerOnce: false, threshold: 0.1, });
   const { ref: refTxtNosCasamos, inView: inViewTxtNosCasamos } = useInView({ triggerOnce: false, threshold: 0.1, });
   const { ref: refArcoDown, inView: inViewArcoDown } = useInView({ triggerOnce: false, threshold: 0.1, });
@@ -147,7 +131,6 @@ const Invitacion = () => {
       <div className={`relative mb-24 ${isMobile ? 'overflow-x-hidden' : ''} `} style={{ marginTop: "-1em" }}>
         {showButton &&
           <div className="flex fixed justify-between items-center m-auto bottom-8 w-full px-4 lg:w-[40%] lg:ml-10" style={{ zIndex: "999" }}>
-
             <Box className="absolute right-4 bottom-14">
               <div
                 className={`flex flex-col gap-2 ${isOpenMenu ? 'visible' : 'h-0'}`}
@@ -160,9 +143,6 @@ const Invitacion = () => {
                 <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add" onClick={() => document.getElementById('recepcion')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Location size="32" color="#AB7779" />
                 </Fab>
-                {/* <Fab size="large" sx={{ background: "linear-gradient(90deg,#E87785,#E1656E)", border: "1.5px dashed white" }} aria-label="add" onClick={() => document.getElementById('album')?.scrollIntoView({ behavior: 'smooth' })}>
-                  <Camera size="32" color="#FFFFFF" />
-                </Fab> */}
                 <Fab size="large" sx={{ background: "#FFE8EA" }} aria-label="add" onClick={() => document.getElementById('regalos')?.scrollIntoView({ behavior: 'smooth' })}>
                   <Gift size="32" color="#AB7779" />
                 </Fab>
@@ -182,179 +162,98 @@ const Invitacion = () => {
 
           <div className='flex flex-col justify-center items-center h-[500px]  lg:sticky lg:top-10 lg:w-[40%]'>
             <figure className={`scale ${inViewArcoUp ? 'zoomIn' : 'zoomOut'}`} ref={refZoomIn}>
-              <img className="w-[300px] md:w-[300px] mb-2" src={arco} alt="arco" />
+              <img className="w-[250px]  mb-2" src={arco} alt="arco" />
             </figure>
             <div className='flex flex-col justify-center items-center gap-7'>
               <p className="secondFont text-lg clr-gray100" style={{ letterSpacing: "2.5px" }}>NUESTRA BODA</p>
-              <h1 className='primaryFont text-5xl md:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
+              <h1 className='primaryFont text-4xl lg:text-5xl clr-gray200 text-[#464444]'>Jhon y Carmen</h1>
             </div>
             <figure className={`scale ${inViewArcoDown ? 'zoomIn' : 'zoomOut'}`} ref={refArcoDown}>
-              <img className="w-[300px] md:w-[300px] mt-6" src={arcoDown} alt="arco" />
+              <img className="w-[250px]  mt-6" src={arcoDown} alt="arco" />
             </figure>
           </div>
           <div className="lg:w-[60%] lg:pt-20">
             <div className="flex flex-col justify-center items-center relative ">
               <div className="p-8">
-                <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Con la bendición de Dios y de nuestros padres</h1>
+                <h1 className="text-lg font-medium clr-gray200 text-center secondFont">Con la bendición de Dios y de nuestros padres</h1>
               </div>
               <figure className={`item-right absolute float-left left-0 lg:hidden ${inViewMovRight ? 'fadeRight' : 'fadeOut'}`} ref={refMovRight} style={{ top: "px" }}>
-                <img src={hoja} style={{ zIndex: "-1" }} alt="" />
+                <img src={hoja} className="h-[150px]" style={{ zIndex: "-1" }} alt="" />
               </figure>
               <div className="flex flex-col justify-center items-center lg:grid lg:grid-cols-2">
                 <div className="flex flex-col justify-center items-center gap-4 mb-8">
-                  <p className="primaryFont text-3xl clr-primary">Padres del novio</p>
+                  <p className="primaryFont text-2xl clr-primary">Padres del novio</p>
                   <div className="flex flex-col gap-1 items-center">
-                    <p className="treeFont text-lg clr-gray100 ">Wilder Soploppuco Bobadilla</p>
-                    <p className="treeFont text-lg clr-gray100 ">Mónica Lavado Rodriguez</p>
+                    <p className="treeFont text-md clr-gray100 ">Wilder Soploppuco Bobadilla</p>
+                    <p className="treeFont text-md clr-gray100 ">Mónica Lavado Rodriguez</p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4 mb-8">
-                  <p className="primaryFont text-3xl clr-primary">Padres de la novia</p>
+                  <p className="primaryFont text-2xl clr-primary">Padres de la novia</p>
                   <div className="flex flex-col gap-1 items-center">
-                    <p className="treeFont text-lg clr-gray100 ">Abel Alayo Rodriguez</p>
-                    <p className="treeFont text-lg clr-gray100 ">Leydy Gonzales Rodriguez</p>
+                    <p className="treeFont text-md clr-gray100 ">Abel Alayo Rodriguez</p>
+                    <p className="treeFont text-md clr-gray100 ">Leydy Gonzales Rodriguez</p>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4 mb-8">
-                  <p className="primaryFont text-3xl clr-primary">Padrinos</p>
+                  <p className="primaryFont text-2xl clr-primary">Padrinos</p>
                   <div className="flex flex-col gap-1 items-center">
-                    <p className="treeFont text-lg clr-gray100 ">Marco Montenegro</p>
-                    <p className="treeFont text-lg clr-gray100 ">Elizabeth Vega Pinchi</p>
+                    <p className="treeFont text-md clr-gray100 ">Marco Montenegro</p>
+                    <p className="treeFont text-md clr-gray100 ">Elizabeth Vega Pinchi</p>
                   </div>
                 </div>
-
-                {/* <div className="flex flex-col justify-center items-center gap-4 mb-4">
-                  <p className="primaryFont text-3xl clr-primary">Testigos</p>
-                  <div className="flex flex-col gap-1 items-center">
-                    <p className="treeFont text-lg clr-gray100 ">José López Santillán</p>
-                    <p className="treeFont text-lg clr-gray100 ">Testigo 2</p>
-                  </div>
-                </div> */}
               </div>
               <figure className={`item-left absolute float-right right-0 bottom-1 ${inViewMovLeft ? 'fadeLeft' : 'fadeOut'}`} ref={refMovLeft}>
-                <img src={hojaDerecha} style={{ zIndex: "-1" }} alt="" />
+                <img src={hojaDerecha} className="h-[150px]" style={{ zIndex: "-1" }} alt="" />
               </figure>
             </div>
             <div className="p-8">
-              <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Nos complace invitarte al día más importante de nuestras vidas.</h1>
+              <h1 className="text-lg font-medium clr-gray200 text-center secondFont">Nos complace invitarte al día más importante de nuestras vidas.</h1>
               {/* <img src={aros} className="h-[80px]" alt="" /><br /> */}
             </div>
 
             <div className="flex items-center justify-center gap-2">
-              <img src={novia} className="w-[46px]" alt="" />
-              <h1 className={`primaryFont clr-primary text-center text-4xl scale ${inViewTxtNosCasamos ? 'zoomIn' : 'zoomOut'} `} ref={refTxtNosCasamos}>¡ Nos Casamos ! </h1>
-              <img src={novio} className="w-[36px]" alt="" />
+              <img src={novia} className="w-[40px]" alt="" />
+              <h1 className={`primaryFont clr-primary text-center text-3xl scale ${inViewTxtNosCasamos ? 'zoomIn' : 'zoomOut'} `} ref={refTxtNosCasamos}>¡ Nos Casamos ! </h1>
+              <img src={novio} className="w-[31px]" alt="" />
             </div>
             <div className="relative flex justify-center items-center mb-5">
               <div className="p-4 mt-5">
-                <img src={calendario} className="h-[310px] lg:h-[350px]" alt="" />
+                <img src={calendario} className="h-[290px] lg:h-[350px]" alt="" />
                 <div className="w-[70%] m-auto" onClick={() => document.getElementById('asistencia')?.scrollIntoView({ behavior: 'smooth' })}>
-                  <ButtonComponent text={"Quiero confirmar"} icon={<DocumentFavorite size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
+                  <ButtonComponent text={"Quiero confirmar"} icon={<DocumentFavorite size="20" color="#FFFFFF" />} fontSize={"medium"} background={null} animation={false} />
                 </div>
               </div>
             </div>
             <div className="p-5 mb-5">
-              <h1 className="text-xl font-medium clr-gray200 text-center secondFont">Cada segundo nos acerca más al mágico día de nuestra boda.</h1>
+              <h1 className="text-lg font-medium clr-gray200 text-center secondFont">Cada segundo nos acerca más al mágico día de nuestra boda.</h1>
             </div>
             <p className="primaryFont text-4xl text-center clr-primary mb-6">Faltan...</p>
             <WeddingDay targetDate={weddingDate} />
-            {/* <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2" id="ceremonia">
-              <img src={aros} className="h-[100px]" alt="" />
-              <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Ceremonia</h2>
-              <p className="treeFont text-lg clr-gray200 font-semibold text-center w-full">Iglesia MMM Alto Trujillo</p>
-              <p className="treeFont text-lg clr-gray200 text-center w-full">Te esperamos el</p>
-              <div className="flex justify-between items-center gap-8 mt-5 mb-5">
-                <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
-                <div className="h-[60px] w-[1px] back-primary"></div>
-                <span className="secondFont text-2xl font-semibold clr-primary">2:30 PM</span>
-              </div>
-              <p className="treeFont text-lg clr-gray200 mb-5 text-center w-full">MZ. A Lote 6 Barrio 3A</p>
-              <Link to="https://maps.app.goo.gl/3qThoqwXaq5etw536.." target="_blank" className="w-[70%] lg:w-[40%]" >
-                <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
-              </Link>
-            </div> */}
             <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2" id="recepcion">
               <img src={recepcion} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Ceremonia</h2>
               <p className="treeFont text-lg clr-gray200 font-semibold text-center w-full">Villa Bianca Eventos</p>
               <p className="treeFont text-lg clr-gray200 text-center w-full">Te esperamos el</p>
-              <div className="flex justify-between items-center gap-8 mt-5 mb-5">
-                <span className="secondFont text-2xl font-semibold clr-primary">12 ENERO</span>
+              <div className="flex justify-between items-center gap-8 ">
+                <span className="secondFont text-xl font-semibold clr-primary">12 ENERO</span>
                 <div className="h-[60px] w-[1px] back-primary"></div>
-                <span className="secondFont text-2xl font-semibold clr-primary">2:30 PM</span>
+                <span className="secondFont text-xl font-semibold clr-primary">2:30 PM</span>
               </div>
-              <p className="treeFont text-lg clr-gray200 mb-5 text-center w-full">Calle Ricardo Palma #20 - Huanchaco</p>
+              <p className="treeFont text-md clr-gray200 mb-5 text-center w-full">Calle Ricardo Palma #20 - Huanchaco</p>
               <Link to="https://maps.app.goo.gl/hotmDNwbgi8PqoUa8" target="_blank" className="w-[70%] lg:w-[40%]" >
-                <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
+                <ButtonComponent text={"Ver ubicación"} icon={<Location size="20" color="#FFFFFF" />} fontSize={"medium"} background={null} animation={false} />
               </Link>
             </div>
             <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4" >
               <img src={vestimenta} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Outfit</h2>
               <p className="treeFont text-2xl clr-primary uppercase font-bold">Elegante</p>
-              <p className="treeFont text-lg clr-gray200 text-center">Sabemos que te verás súper</p>
+              <p className="treeFont text-md clr-gray200 text-center">Sabemos que te verás súper</p>
             </div>
-            {/* <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4 w-full" id="album">
-              <img src={camara} className="h-[100px]" alt="" />
-              <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Fotos</h2>
-              <p className="treeFont text-lg clr-gray200 font-semibold text-center">Armemos nuestro álbum de fotos</p>
-              <p className="treeFont text-lg clr-gray200 text-center mb-5 w-full">Guardemos cada momento especial</p>
-              <div className="flex flex-col gap-5 justify-center items-center">
-                <p className="treeFont w-full m-auto text-center text-lg clr-gray200">Escanea el código con la cámara de tu celular</p>
-                <div className="bg-white p-4 rounded-lg">
-                  <img src={qr} className="h-[200px]" alt="" />
-                </div>
-                <p className="treeFont w-full m-auto text-center clr-gray200 text-lg">- O ingresa el código -</p>
-                <p className="treeFont font-bold text-2xl mb-5 clr-gray200">HLYYKTXK</p>
-              </div>
-              <div onClick={() => toggleDrawerFotos(true)} className="w-[70%] lg:w-[40%]">
-                <ButtonComponent text={"Mas información"} icon={<Camera size="20" color="#FFFFFF" />} fontSize={"large"} background={"linear-gradient(90deg,#E87785,#E1656E)"} animation={false} />
-              </div>
-              <CustomDrawer
-                isOpen={isDrawerOpen}
-                toggleDrawer={toggleDrawerFotos}
 
-                content={
-                  <Box className="flex flex-col w-full">
-                    <div className="relative rounded-t-lg lg:rounded-t-none bg-gradient-to-r from-[#86977E] to-[#495245] p-4">
-                      <h1 className="secondFont text-white font-semibold text-xl">Guardemos recuerdos</h1>
-                      <Gallery size="62" color="#FFFFFF" className="absolute right-4 bottom-0 top-2 opacity-50" />
-                    </div>
-                    <div className="p-4 gap-5 flex flex-col">
-                      <div onClick={() => toggleDrawerFotos(false)} className="flex gap-2 p-2 items-center back-primary w-[125px] rounded-full text-white cursor-pointer" >
-                        <ArrowLeft size="16" color="#FFFFFF" />
-                        <p className="treeFont text-xs ">Volver atrás</p>
-                      </div>
-                      <p className="treeFont text-sm">Para poder compartir fotos de la boda de <b>Jhon y Carmen</b> en 1 solo álbum, sigue los siguientes pasos:</p>
-                      <div className="flex gap-2">
-                        <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full text-white">1</p>
-                        <p className="treeFont text-lg">Descarga la aplicación.</p>
-                      </div>
-                      <img src={celebrate} className="h-[100px] m-auto" alt="" />
-                      <p className="m-auto treeFont font-semibold clr-primary text-center w-full">Descargala gratis</p>
-                      <div className="flex m-auto">
-                        <Link to="https://itunes.apple.com/de/app/celebrate-hochzeitsfotos/id1453163913" target="_blank">
-                          <img src={appstore} alt="" />
-                        </Link>
-                        <Link to="https://play.google.com/store/apps/details?id=app.celebrate.celpho" target="_blank">
-                          <img src={playstore} alt="" />
-                        </Link>
-                      </div>
-                      <div className="flex gap-2 w-full">
-                        <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">2</p>
-                        <p className="treeFont text-lg">Únete escaneando el código QR o ingresando el código mostrado anteriormente.</p>
-                      </div>
-                      <div className="flex gap-2 w-full">
-                        <p className="back-primary w-[30px] h-[30px] flex justify-center items-center rounded-full p-3 text-white">3</p>
-                        <p className="treeFont text-lg">Sube tus fotos a la app.</p>
-                      </div>
-                    </div>
-                  </Box>
-                }
-                anchor={isMobile ? 'bottom' : 'left'}
-              />
-            </div> */}
-            <h1 className="primaryFont text-center clr-primary text-4xl font-medium mb-10">Galería de fotos</h1>
+            <div className="primaryFont text-center clr-primary text-3xl font-medium mb-10" style={{ marginTop: "50px" }}>Galería de fotos</div>
+
             <div className="flex justify-center items-center p-0 m-0">
               <Swiper
                 effect={'cards'}
@@ -373,18 +272,16 @@ const Invitacion = () => {
                 <SwiperSlide> <img src={galery_04} alt="" /> </SwiperSlide>
                 <SwiperSlide> <img src={galery_05} alt="" /> </SwiperSlide>
                 <SwiperSlide> <img src={galery_06} alt="" /> </SwiperSlide>
-                {/* <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide> */}
+
               </Swiper>
             </div>
             <div className="flex flex-col justify-center items-center mt-8 mb-8 gap-2 px-4" id="regalos">
               <img src={cajaregalo} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Regalos</h2>
               <p className="treeFont text-lg text-center clr-gray200 font-medium">Tu presencia es lo más importante</p>
-              <p className="treeFont text-lg clr-gray200 text-center mb-5">Pero si deseas expresarnos tu cariño puedes hacerlo aquí</p>
+              <p className="treeFont text-md clr-gray200 text-center mb-5">Pero si deseas expresarnos tu cariño puedes hacerlo aquí</p>
               <div onClick={() => toggleDrawerRegalos(true)} className="w-[70%] lg:w-[40%]">
-                <ButtonComponent text={"Quiero regalar"} icon={<Gift size="20" color="#FFFFFF" />} fontSize={"large"} background={null} animation={false} />
+                <ButtonComponent text={"Quiero regalar"} icon={<Gift size="20" color="#FFFFFF" />} fontSize={"medium"} background={null} animation={false} />
               </div>
               <CustomDrawer
                 isOpen={isDrawerRegalosOpen}
@@ -455,7 +352,7 @@ const Invitacion = () => {
               <img src={asistencia} className="h-[100px]" alt="" />
               <h2 className="secondFont text-2xl font-bold clr-gray200 uppercase" style={{ letterSpacing: "2.5px" }}>Asistencia</h2>
               <p className="treeFont text-lg clr-gray200 font-semibold text-center">La pasaremos genial</p>
-              <p className="treeFont text-lg clr-gray200 text-center mb-5">Te agradecemos que nos confirmes tu asistencia antes del <b>01 de diciembre</b>.<br /> Tu respuesta es muy importante para nosotros.</p>
+              <p className="treeFont text-md clr-gray200 text-center mb-5">Te agradecemos que nos confirmes tu asistencia antes del <b>22 de diciembre</b>.<br /> Tu respuesta es muy importante para nosotros.</p>
               <div className="flex w-full flex-col justify-center items-center gap-4">
                 <div className="flex w-full justify-center items-center gap-4">
                   <h1 className="primaryFont text-3xl  clr-gray200">Novio</h1>
