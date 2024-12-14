@@ -26,7 +26,7 @@ const ModalAsistencia: React.FC<ModalAsiistenciaProps> = ({ open, handClose }) =
           <div className="w-full p-4 flex justify-center items-center flex-col gap-4">
             <h1 className="primaryFont text-3xl font-bold clr-black mt-2">La pasaremos genial!</h1>
             <span className="treeFont clr-gray200 text-sm text-center">
-              Te agradecemos que nos confirmes tu asistencia antes del 01 de diciembre. Tu respuesta es muy importante para nosotros.
+              Te agradecemos que nos confirmes tu asistencia antes del 22 de diciembre. Tu respuesta es muy importante para nosotros.
             </span>
             <div className="flex w-full flex-col justify-center items-center gap-4">
               <div className="flex w-full justify-center items-center gap-4">
